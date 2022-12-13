@@ -11,8 +11,7 @@ function App() {
         cloudName: 'dfmxbcddb', 
         uploadPreset: 'krdozupg'}, (error, result) => { 
           if (!error && result && result.event === "success") { 
-            //console.log(result.info.url)
-            // setImages(prev => [...prev, { url: result.info.url, public_id: result.info.public_id}]); 
+            //console.log(result.info.url) 
             setImageURL(result.info.url); 
           }
         }
@@ -27,13 +26,11 @@ const handleSubmit = () => {
   return (
     <div className="App">
       Lorem, ipsum dolor.
-      <form className="create" onSubmit={handleSubmit}>
-            
+      <form className="create" onSubmit={handleSubmit}>            
              <button id='upload-widget' className='cloudinary-button' onClick={handleOpenWidget}>Upload Image</button> 
-             <button>Add Image</button>
-            
-        </form>
-        <img src={imageURL} alt="imageURL" />
+             <button>Add Image</button>            
+      </form>
+      <img src={imageURL} alt="imageURL" />
         
     </div>
   );
