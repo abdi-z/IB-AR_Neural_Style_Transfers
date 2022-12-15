@@ -41,10 +41,18 @@ userSchema.statics.signup = async function (
   password,
   userName,
   phoneNumber,
-  gender
+  gender,
+  avatarImgURL
 ) {
   // validator
-  if (!email || !password || !userName || !phoneNumber || !gender) {
+  if (
+    !email ||
+    !password ||
+    !userName ||
+    !phoneNumber ||
+    !gender ||
+    !avatarImgURL
+  ) {
     throw Error("All fields must be filled");
   }
   if (!validator.isEmail(email)) {
@@ -72,6 +80,7 @@ userSchema.statics.signup = async function (
     userName,
     phoneNumber,
     gender,
+    avatarImgURL,
   });
 
   return user;
