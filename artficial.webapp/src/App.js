@@ -15,7 +15,7 @@ function App() {
             setImageURL(result.info.url); 
           }
         }
-      )
+      )-
       myWidget.open();
 }
 
