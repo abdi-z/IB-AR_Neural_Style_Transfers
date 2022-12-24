@@ -33,10 +33,10 @@ def foo():
     data = request.get_json()
     styleImageURL=data['styleImageURL']
     reponseOne=requests.get(styleImageURL)
-    open("Style.jpg", "wb").write(reponseOne.content)
+    open("./inputImages/Style.jpg", "wb").write(reponseOne.content)
     contentImageURL=data['contentImageURL']
     responseTwo=requests.get(contentImageURL)
-    open("Content.jpg", "wb").write(responseTwo.content)
+    open("./inputImages/Content.jpg", "wb").write(responseTwo.content)
     toBeRet=dict()
     toBeRet['outputImage']=styleImageURL+contentImageURL
     return jsonify(toBeRet)
@@ -48,15 +48,15 @@ def predict():
     # URL='https://res.cloudinary.com/dfmxbcddb/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1662464187/xai7ynpko8ionpmtsjwv.jpg'
     # response = requests.get(URL)
     # open("instagram.jpg", "wb").write(response.content)
+    data = request.get_json()
+    styleImageURL=data['styleImageURL']
+    reponseOne=requests.get(styleImageURL)
+    open("./inputImages/Style.jpg", "wb").write(reponseOne.content)
+    contentImageURL=data['contentImageURL']
+    responseTwo=requests.get(contentImageURL)
+    open("./inputImages/Content.jpg", "wb").write(responseTwo.content)
     
-    
-    
-    
-    imagefile=request.files['imagefile']
-    
-    
-    image_path="./images/" + imagefile.filename
-    imagefile.save(image_path)
+    image_path="./inputImages/Content.jpg"
 
     def load_image(img_path):
         img = tf.io.read_file(img_path)
@@ -66,12 +66,12 @@ def predict():
         return img
     
     content_image = load_image(image_path)
-    style_image = load_image('./images/monet.jpeg')
+    style_image = load_image('./inputImages/Style.jpg')
 
     stylized_image = model(tf.constant(content_image), tf.constant(style_image))[0]
-    stylizedName=''+str(random.randint(1,100000))+imagefile.filename
+    stylizedName=''+str(random.randint(1,100000))+'Stylized.jpg'
     cv2.imwrite(''+stylizedName, cv2.cvtColor(np.squeeze(stylized_image)*255, cv2.COLOR_BGR2RGB))
-
+    
     def uploadImage():
         # Upload the image and get its URL
         # ==============================
@@ -92,16 +92,12 @@ def predict():
     
     outputURL=uploadImage()
     
-    os.remove(''+stylizedName) #Remove the stylized image from the server
-    os.remove(''+image_path)   #Remove the uploaded image from the server
-    
+    os.remove('./inputImages/Content.jpg') #Remove the stylized image from the server
+    os.remove('./inputImages/Style.jpg') #Remove the stylized image from the server
+    toBeRet=dict()
+    toBeRet['outputImage']=outputURL+".jpg"
+    return jsonify(toBeRet)
 
-    return render_template('index.html')
-
-
-    
-    
-    
 
 if __name__=='__main__':
     app.run(port=5000, debug=True)
