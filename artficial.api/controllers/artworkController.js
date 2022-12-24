@@ -28,7 +28,7 @@ const createArtwork = async (req, res) => {
     nftLink,
     presetID,
   } = req.body;
-
+  
   try {
     const artwork = await Artwork.create({
       title,
