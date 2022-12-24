@@ -25,22 +25,8 @@ cloudinary.config(
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
-def hell():
+def hello():
     return render_template('index.html')
-
-@app.route('/foo', methods=['POST'])
-def foo():
-    data = request.get_json()
-    styleImageURL=data['styleImageURL']
-    reponseOne=requests.get(styleImageURL)
-    open("./inputImages/Style.jpg", "wb").write(reponseOne.content)
-    contentImageURL=data['contentImageURL']
-    responseTwo=requests.get(contentImageURL)
-    open("./inputImages/Content.jpg", "wb").write(responseTwo.content)
-    toBeRet=dict()
-    toBeRet['outputImage']=styleImageURL+contentImageURL
-    return jsonify(toBeRet)
-
 
 
 @app.route('/predict', methods=['POST'])
@@ -94,6 +80,8 @@ def predict():
     
     os.remove('./inputImages/Content.jpg') #Remove the stylized image from the server
     os.remove('./inputImages/Style.jpg') #Remove the stylized image from the server
+    print('The stylized image is: '+stylizedName)
+    os.remove(''+stylizedName) #Remove the stylized image from the server
     toBeRet=dict()
     toBeRet['outputImage']=outputURL+".jpg"
     return jsonify(toBeRet)
