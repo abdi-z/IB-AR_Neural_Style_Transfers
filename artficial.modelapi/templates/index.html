@@ -22,28 +22,61 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #0e3f33;
+        color: white;
+        text-align: center;
+        padding: "1 rem";
+      }
+    </style>
   </head>
-  <body>
-    <div class="container-fluid">
-      <h2 class="text-center">ARTficial</h2>
-      <form
-        class="p-3 text-center"
-        action="/predict"
-        ,
-        method="post"
-        enctype="multipart/form-data"
+  <body style="background-color: black">
+    <div
+      class="container-fluid"
+      style="font-family: 'VT323', monospace; color: white"
+    >
+      <h1 class="text-center">ARTficial Model API</h1>
+      <h5 class="align-left">
+        <span style="color: black; background-color: white; padding: 0.25rem"
+          >POST request on /nst to access the model</span
+        >
+      </h5>
+      <p>The post method expects a json object in the following format:</p>
+      <pre style="color: white">
+      {
+        "styleImageURL":"https://styleImageURL.com",
+        "contentImageURL":"https://contentImageURL.com"
+      }
+      </pre>
+      <p>The model will then return a json object with the following format:</p>
+      <pre style="color: white">
+      {
+        "outputImage": "http://outputstylizedurl.com"
+      }
+        </pre
       >
-        <div class="form-group">
-          <label for="exampleFormControlFile1">Example file input</label>
-          <input
-            type="file"
-            class="form-control-file"
-            id="exampleFormControlFile1"
-            name="imagefile"
-          />
-          <input class="btn btn-primary" type="submit" value="Predict image" />
-        </div>
-      </form>
+      Note: The model can accept images of any size or resolution but will take
+      more time processing depending on the quality of the images.
+      <div class="footer">
+        Made with ❤️ at 🇵🇰. Support the open source project at the official
+        <a
+          href="https://github.com/mishaosipovprodigy2/IB-AR_Neural_Style_Transfers"
+          target="_none"
+          >ARTficial</a
+        >
+        repository.
+      </div>
     </div>
   </body>
 </html>

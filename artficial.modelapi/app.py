@@ -29,7 +29,7 @@ def hello():
     return render_template('index.html')
 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/nst', methods=['POST'])
 def predict():
     # URL='https://res.cloudinary.com/dfmxbcddb/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1662464187/xai7ynpko8ionpmtsjwv.jpg'
     # response = requests.get(URL)
