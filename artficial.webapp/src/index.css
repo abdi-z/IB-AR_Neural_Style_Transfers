@@ -32,7 +32,7 @@ header a {
   max-width: 1400px;
   margin-left: 0px;
 }
-
+*/
 
 /* homepage */
 
@@ -71,10 +71,6 @@ header a {
   color: #333;
 }
 
-label,
-input {
-  display: block;
-}
 input {
   padding: 10px;
   margin-top: 10px;
@@ -154,4 +150,3 @@ form.signup h3 {
   color: #000000;
   padding: 10%;
 }
-
