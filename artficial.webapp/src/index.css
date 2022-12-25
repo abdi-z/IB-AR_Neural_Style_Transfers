@@ -1,7 +1,8 @@
-/* google font */
+/* google font
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
 /* layout */
+
 :root {
   --primary: #47edc3;
   --error: #e7195a;
@@ -22,22 +23,21 @@ header .container {
   align-items: center;
   justify-content: space-between;
   background-color: #040911;
-
 }
 header a {
-  color:#dae0e5 ;
+  color: #dae0e5;
   text-decoration: none;
 }
-.pages{
+.pages {
   max-width: 1400px;
   margin-left: 0px;
-  /* margin: 0 auto; */
 }
 
+
 /* homepage */
+
 .home {
   display: grid;
-  /* grid-template-columns: 5fr 1fr; */
   gap: 100px;
   margin-left: 20%;
   margin-right: 20%;
@@ -48,7 +48,7 @@ header a {
   margin: 20px auto;
   padding: 20px;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
 }
 .workout-details h4 {
   margin: 0 0 10px 0;
@@ -71,8 +71,8 @@ header a {
   color: #333;
 }
 
-/* new workout form */
-label, input {
+label,
+input {
   display: block;
 }
 input {
@@ -84,7 +84,7 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
-img{
+img {
   height: 6rem;
   width: 15rem;
 }
@@ -108,8 +108,9 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
-/* auth forms */
-form.signup, form.login {
+
+form.signup,
+form.login {
   max-width: 400px;
   margin: 30px auto;
   padding: 30px;
@@ -125,14 +126,11 @@ form.signup h3 {
   font-size: larger;
 }
 
-/* navbar */
-/* nav > username*/
-.usersEmail{
+.usersEmail {
   color: #47edc3;
   margin-right: 10px;
 }
-/* nav > username*/
-.logout{
+.logout {
   background-color: #ed4747;
   color: #ffffff;
   margin-right: 10px;
@@ -140,13 +138,7 @@ form.signup h3 {
   padding: 10px;
 }
 
-/* loginSignup window */
 .loginSignup {
-  /* background-color: #ffffff;
-  color: #000000;
-  border-radius: 15px;
-  padding: 10px 10px;
-  width: auto; */
   margin-right: 5rem;
 }
 
@@ -155,7 +147,6 @@ form.signup h3 {
   background-color: black;
   color: white;
   padding: 10%;
-  
 }
 .loginButton {
   border-radius: 15px;
@@ -163,3 +154,4 @@ form.signup h3 {
   color: #000000;
   padding: 10%;
 }
+
