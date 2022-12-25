@@ -10,6 +10,7 @@ const galleries = require('./routes/galleries')
 const promotedArtworks = require('./routes/promotedArtworks')
 const reportArtworks = require('./routes/reportArtworks')
 const themePresets = require('./routes/themePresets')
+const index=require('./routes/index')
 
 const app = express()
 
@@ -20,6 +21,7 @@ app.use((req,res,next)=>{
     next()
 })
 
+app.use('/',index)
 app.use('/api/artworks',artworkRoutes)
 app.use('/api/users',userRoutes)
 app.use('/api/artistPresets',artistPresets)

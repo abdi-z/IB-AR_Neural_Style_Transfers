@@ -23,10 +23,18 @@ const loginUser = async (req, res) => {
 
 //signup
 const signupUser = async (req, res) => {
-  const { email, password, userName, phoneNumber,gender,avatarImgURL } = req.body;
+  const { email, password, userName, phoneNumber, gender, avatarImgURL } =
+    req.body;
 
   try {
-    const user = await User.signup(email, password, userName, phoneNumber,gender, avatarImgURL);
+    const user = await User.signup(
+      email,
+      password,
+      userName,
+      phoneNumber,
+      gender,
+      avatarImgURL
+    );
 
     // create a token
     const token = createToken(user._id);
@@ -36,5 +44,9 @@ const signupUser = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-
-module.exports = { loginUser, signupUser };
+//get all users
+const getAllUsers = async (req, res) => {
+  const users = await User.find({}).sort({ createdAt: -1 });
+  res.status(200).json(users);
+};
+module.exports = { loginUser, signupUser, getAllUsers };
