@@ -21,12 +21,9 @@ const AllArtworks = () => {
   }, [dispatch]);
 
   return (
-    <div className="home">
-      <div className="workouts">
+    <div>
+      <div>
         All Artworks here
-        {/* <Link to="/">
-          <blockquote>Home Page</blockquote>
-        </Link> */}
         {artworks &&
           artworks.map((Artwork) => (
             <SingleArtwork key={Artwork._id} artwork={Artwork} />

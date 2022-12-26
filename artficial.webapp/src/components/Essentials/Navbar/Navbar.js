@@ -56,6 +56,23 @@ export default function Navbar() {
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
+              {user && (
+                <Link to="/createartwork">
+                  <Button
+                    display={{ base: "none", md: "inline-flex" }}
+                    fontSize={"sm"}
+                    fontWeight={600}
+                    color={"white"}
+                    bg={"pink.400"}
+                    href={"#"}
+                    _hover={{
+                      bg: "pink.300",
+                    }}>
+                    Create Artwork
+                  </Button>
+                </Link>
+              )}
+
               <Button onClick={toggleColorMode}>
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               </Button>

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
 /* layout */
-
+/*
 :root {
   --primary: #47edc3;
   --error: #e7195a;
@@ -35,7 +35,7 @@ header a {
 */
 
 /* homepage */
-
+/*
 .home {
   display: grid;
   gap: 100px;
@@ -149,4 +149,4 @@ form.signup h3 {
   background-color: #47edc3;
   color: #000000;
   padding: 10%;
-}
+}*/
