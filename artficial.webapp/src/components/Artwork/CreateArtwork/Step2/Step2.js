@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Image, CloudinaryContext } from "cloudinary-react";
+import { CloudinaryContext } from "cloudinary-react";
+import { Image } from "@chakra-ui/react";
 import { Stack } from "@chakra-ui/react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 import { Button, Heading, Text } from "@chakra-ui/react";
 import {
@@ -14,33 +16,22 @@ import {
 } from "@chakra-ui/react";
 
 const Step2 = () => {
+  const { uploadedUrl } = useLocation().state;
   const [imageSelected, setImageSelected] = React.useState("");
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
-  const [uploadedUrl, setUploadedUrl] = useState("");
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // validate form data and set errors
-    // if form is valid, submit data to server
-  };
-
-  const uploadImage = () => {
-    const formData = new FormData();
-    formData.append("file", imageSelected);
-    formData.append("upload_preset", "kf2dcmgt");
-    axios
-      .post("https://api.cloudinary.com/v1_1/dlx4hhpw2/image/upload", formData)
-      .then((response) => {
-        console.log(response);
-        setUploadedUrl(response.data.secure_url);
-      });
-  };
+  const [michelangelo, setMichelangelo] = React.useState(
+    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg"
+  );
+  const [leonardo, setLeonardo] = React.useState(
+    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg"
+  );
+  const [monet, setMonet] = React.useState(
+    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg"
+  );
+  const [vangogh, setVangogh] = React.useState(
+    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg"
+  );
 
   return (
     <Box pt={35}>
@@ -64,7 +55,7 @@ const Step2 = () => {
               color={"gray.300"}
               lineHeight={1.1}
               fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
-              Let's get started
+              Select a style preset
               <Text
                 as={"span"}
                 bgGradient="linear(to-r, red.400,pink.400)"
@@ -73,27 +64,55 @@ const Step2 = () => {
               </Text>
             </Heading>
             <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              Start off by uploading the image to be stylized.
+              Select one of the following the style presets.
             </Text>
-            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              <input
-                type="file"
-                onChange={(e) => {
-                  setImageSelected(e.target.files[0]);
-                }}
-              />
-              <Button onClick={uploadImage}>Upload</Button>
-            </Text>
+            <Stack direction="row">
+              <Link
+                to="/createartwork/step3"
+                state={{ styleLink: michelangelo, uploadedUrl }}>
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src={michelangelo}
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{ styleLink: leonardo, uploadedUrl }}>
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src={leonardo}
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{ styleLink: monet, uploadedUrl }}>
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src={monet}
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{ styleLink: vangogh, uploadedUrl }}>
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src={vangogh}
+                  alt="Dan Abramov"
+                  text="hello"
+                />
+              </Link>
+            </Stack>
           </Stack>
-          {uploadedUrl && (
-            <Image
-              style={{ width: 200 }}
-              cloudName="dlx4hhpw2"
-              publicId={uploadedUrl}
-            />
-          )}
+
           <Box as={"form"} mt={10}>
-            <Link to="/createartwork/step2" state={{ uploadedUrl }}>
+            <Link to="/createartwork/step1">
               <Button
                 fontFamily={"heading"}
                 mt={8}
@@ -104,7 +123,7 @@ const Step2 = () => {
                   bgGradient: "linear(to-r, red.400,pink.400)",
                   boxShadow: "xl",
                 }}>
-                Proceed
+                Back
               </Button>
             </Link>
           </Box>

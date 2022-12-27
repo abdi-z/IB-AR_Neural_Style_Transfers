@@ -37,7 +37,7 @@ const Step1 = () => {
     axios
       .post("https://api.cloudinary.com/v1_1/dlx4hhpw2/image/upload", formData)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setUploadedUrl(response.data.secure_url);
       });
   };

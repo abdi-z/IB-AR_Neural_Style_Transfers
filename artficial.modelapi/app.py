@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-
+from flask_cors import CORS
 #importing model pre reqs
 import tensorflow_hub as hub
 import tensorflow as tf
@@ -23,7 +23,7 @@ cloudinary.config(
 
 
 app = Flask(__name__)
-
+CORS(app)
 @app.route('/', methods=['GET'])
 def hello():
     return render_template('index.html')
