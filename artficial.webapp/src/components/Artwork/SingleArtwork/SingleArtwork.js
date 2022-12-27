@@ -40,7 +40,7 @@ const SingleArtwork = ({ artwork }) => {
         <Stack mt="6" spacing="3">
           <Heading size="md">{artwork.title}</Heading>
           <Text>
-            {artwork.description.substring(1, 100)+"..."}
+            {artwork.description.substring(1, 50)+"..."}
           </Text>
           <Text color="blue.600" fontSize="1xl" textAlign={"right"}>
             {formatDistanceToNow(new Date(artwork.createdAt),{addSuffix:true})}
