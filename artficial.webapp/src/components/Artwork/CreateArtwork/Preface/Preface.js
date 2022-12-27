@@ -15,27 +15,32 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import ai1 from "./images/ai1.jpeg";
+import ai2 from "./images/ai2.png";
+import ai3 from "./images/ai3.jpeg";
+import ai4 from "./images/ai4.jpg";
+import ai5 from "./images/ai5.jpeg";
 
 const avatars = [
   {
     name: "Ryan Florence",
-    url: "https://bit.ly/ryan-florence",
+    url: ai1,
   },
   {
     name: "Segun Adebayo",
-    url: "https://bit.ly/sage-adebayo",
+    url: ai2,
   },
   {
     name: "Kent Dodds",
-    url: "https://bit.ly/kent-c-dodds",
+    url: ai3,
   },
   {
     name: "Prosper Otemuyiwa",
-    url: "https://bit.ly/prosper-baba",
+    url: ai4,
   },
   {
     name: "Christian Nwamba",
-    url: "https://bit.ly/code-beast",
+    url: ai5,
   },
 ];
 
@@ -44,22 +49,22 @@ export default function Preface() {
     <Box position={"relative"}>
       <Container
         as={SimpleGrid}
-        maxW={"7xl"}
+        maxW={"6xl"}
         columns={{ base: 1, md: 2 }}
         spacing={{ base: 10, lg: 32 }}
-        py={{ base: 10, sm: 20, lg: 32 }}>
+        py={{ base: 10, sm: 20, lg: 20 }}>
         <Stack spacing={{ base: 10, md: 20 }}>
           <Heading
             lineHeight={1.1}
             fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}>
-            Senior web designers{" "}
+            Create stunning{" "}
             <Text
               as={"span"}
               bgGradient="linear(to-r, red.400,pink.400)"
               bgClip="text">
-              &
+              artworks
             </Text>{" "}
-            Full-Stack Developers
+            with our user-friendly platform
           </Heading>
           <Stack direction={"row"} spacing={4} align={"center"}>
             <AvatarGroup>
@@ -68,16 +73,16 @@ export default function Preface() {
                   key={avatar.name}
                   name={avatar.name}
                   src={avatar.url}
-                  size={{ base: "md", md: "lg" }}
+                  size={{ base: "lg", md: "lg" }}
                   position={"relative"}
                   zIndex={2}
                   _before={{
                     content: '""',
                     width: "full",
                     height: "full",
-                    rounded: "full",
-                    transform: "scale(1.125)",
-                    bgGradient: "linear(to-bl, red.400,pink.400)",
+
+                    // transform: "scale(1.125)",
+                    //bgGradient: "linear(to-bl, red.400,pink.400)",
                     position: "absolute",
                     zIndex: -1,
                     top: 0,
@@ -86,10 +91,8 @@ export default function Preface() {
                 />
               ))}
             </AvatarGroup>
-            <Text fontFamily={"heading"} fontSize={{ base: "4xl", md: "6xl" }}>
-              +
-            </Text>
-            <Flex
+
+            {/* <Flex
               align={"center"}
               justify={"center"}
               fontFamily={"heading"}
@@ -112,22 +115,22 @@ export default function Preface() {
                 top: 0,
                 left: 0,
               }}>
-              YOU
-            </Flex>
+              View
+            </Flex> */}
           </Stack>
         </Stack>
         <Stack
-          bg={"gray.50"}
+          bg={"gray.900"}
           rounded={"xl"}
           p={{ base: 4, sm: 6, md: 8 }}
           spacing={{ base: 8 }}
           maxW={{ lg: "lg" }}>
           <Stack spacing={4}>
             <Heading
-              color={"gray.800"}
+              color={"gray.300"}
               lineHeight={1.1}
               fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
-              Join our team
+              Let the world become your canvas
               <Text
                 as={"span"}
                 bgGradient="linear(to-r, red.400,pink.400)"
@@ -136,43 +139,12 @@ export default function Preface() {
               </Text>
             </Heading>
             <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              We’re looking for amazing engineers just like you! Become a part
-              of our rockstar engineering team and skyrocket your career!
+              Unleash your creativity and bring your vision to life. Transform
+              your ideas into beautiful, one-of-a-kind artworks with our
+              comprehensive art creation tools
             </Text>
           </Stack>
           <Box as={"form"} mt={10}>
-            <Stack spacing={4}>
-              <Input
-                placeholder="Firstname"
-                bg={"gray.100"}
-                border={0}
-                color={"gray.500"}
-                _placeholder={{
-                  color: "gray.500",
-                }}
-              />
-              <Input
-                placeholder="firstname@lastname.io"
-                bg={"gray.100"}
-                border={0}
-                color={"gray.500"}
-                _placeholder={{
-                  color: "gray.500",
-                }}
-              />
-              <Input
-                placeholder="+1 (___) __-___-___"
-                bg={"gray.100"}
-                border={0}
-                color={"gray.500"}
-                _placeholder={{
-                  color: "gray.500",
-                }}
-              />
-              <Button fontFamily={"heading"} bg={"gray.200"} color={"gray.800"}>
-                Upload CV
-              </Button>
-            </Stack>
             <Link to="/createartwork/step1">
               <Button
                 fontFamily={"heading"}
@@ -184,7 +156,7 @@ export default function Preface() {
                   bgGradient: "linear(to-r, red.400,pink.400)",
                   boxShadow: "xl",
                 }}>
-                Submit
+                Create an Artwork
               </Button>
             </Link>
           </Box>
