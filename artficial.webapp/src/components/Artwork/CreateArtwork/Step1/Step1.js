@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Image, CloudinaryContext } from "cloudinary-react";
 import { Stack } from "@chakra-ui/react";
 import axios from "axios";
+import { Spinner } from "@chakra-ui/react";
 
 import { Button, Heading, Text } from "@chakra-ui/react";
 import {
@@ -18,19 +19,11 @@ const Step1 = () => {
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
   const [uploadedUrl, setUploadedUrl] = useState("");
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // validate form data and set errors
-    // if form is valid, submit data to server
-  };
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const uploadImage = () => {
+    setLoading(true);
     const formData = new FormData();
     formData.append("file", imageSelected);
     formData.append("upload_preset", "kf2dcmgt");
@@ -38,6 +31,7 @@ const Step1 = () => {
       .post("https://api.cloudinary.com/v1_1/dlx4hhpw2/image/upload", formData)
       .then((response) => {
         // console.log(response);
+        setLoading(false);
         setUploadedUrl(response.data.secure_url);
       });
   };
@@ -85,7 +79,9 @@ const Step1 = () => {
               <Button onClick={uploadImage}>Upload</Button>
             </Text>
           </Stack>
-          {uploadedUrl && (
+          {loading ? (
+            <Spinner color="red.500" />
+          ) : (
             <Image
               style={{ width: 200 }}
               cloudName="dlx4hhpw2"

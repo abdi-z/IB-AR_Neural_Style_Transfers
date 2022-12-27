@@ -5,6 +5,7 @@ import { Image } from "@chakra-ui/react";
 import { Stack } from "@chakra-ui/react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { Spinner } from "@chakra-ui/react";
 
 import { Button, Heading, Text } from "@chakra-ui/react";
 import {
@@ -30,7 +31,7 @@ const Step3 = () => {
         contentImageURL: uploadedUrl,
       })
       .then((data) => {
-        console.log(data.data.outputImage)
+        console.log(data.data.outputImage);
         setLoading(false);
         setGeneratedImageURL(data.data.outputImage);
       })
@@ -91,13 +92,13 @@ const Step3 = () => {
           </Box>
           {error && <h1>error</h1>}
           {loading ? (
-            <h1>Loading</h1>
+            <Spinner color="red.500" />
           ) : (
             <Image
               boxSize="150px"
               objectFit="cover"
               src={generatedImageURL}
-              alt="Dan Abramov"
+             
             />
           )}
           <Box as={"form"} mt={10}>
