@@ -160,7 +160,7 @@ export default function Preface() {
               </Button>
             </Link>
           </Box>
-          form
+          
         </Stack>
       </Container>
       <Blur
