@@ -102,7 +102,7 @@ export default function Navbar() {
                     </Center>
                     <br />
                     <Center>
-                      <p>{user.email}</p>
+                      <p>{user.name}</p>
                     </Center>
                     <br />
                     <MenuDivider />
