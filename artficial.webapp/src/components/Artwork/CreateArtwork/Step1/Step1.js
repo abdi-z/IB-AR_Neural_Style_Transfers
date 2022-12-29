@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Image, CloudinaryContext } from "cloudinary-react";
-import { Stack } from "@chakra-ui/react";
+import { Center, Flex, Stack } from "@chakra-ui/react";
 import axios from "axios";
 import { Spinner } from "@chakra-ui/react";
 
@@ -37,7 +37,7 @@ const Step1 = () => {
   };
 
   return (
-    <Box pt={35}>
+    <Box pt={25}>
       <Box
         display="flex"
         alignItems="center"
@@ -53,41 +53,47 @@ const Step1 = () => {
           p={{ base: 4, sm: 6, md: 8 }}
           spacing={{ base: 8 }}
           maxW={{ lg: "lg" }}>
-          <Stack spacing={4}>
-            <Heading
-              color={"gray.300"}
-              lineHeight={1.1}
-              fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
-              Let's get started
-              <Text
-                as={"span"}
-                bgGradient="linear(to-r, red.400,pink.400)"
-                bgClip="text">
-                !
+          <Center>
+            <Stack spacing={4}>
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <Heading
+                  color={"gray.300"}
+                  lineHeight={1.1}
+                  fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
+                  Let's get started
+                  <Text
+                    as={"span"}
+                    bgGradient="linear(to-r, red.400,pink.400)"
+                    bgClip="text">
+                    !
+                  </Text>
+                </Heading>
+              </Box>
+              <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                Start off by uploading the image to be stylized.
               </Text>
-            </Heading>
-            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              Start off by uploading the image to be stylized.
-            </Text>
-            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              <input
-                type="file"
-                onChange={(e) => {
-                  setImageSelected(e.target.files[0]);
-                }}
+              <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                <input
+                  type="file"
+                  onChange={(e) => {
+                    setImageSelected(e.target.files[0]);
+                  }}
+                />
+                <Button onClick={uploadImage}>Upload</Button>
+              </Text>
+            </Stack>
+          </Center>
+          <Center>
+            {loading ? (
+              <Spinner color="red.500" />
+            ) : (
+              <Image
+                style={{ width: 200 }}
+                cloudName="dlx4hhpw2"
+                publicId={uploadedUrl}
               />
-              <Button onClick={uploadImage}>Upload</Button>
-            </Text>
-          </Stack>
-          {loading ? (
-            <Spinner color="red.500" />
-          ) : (
-            <Image
-              style={{ width: 200 }}
-              cloudName="dlx4hhpw2"
-              publicId={uploadedUrl}
-            />
-          )}
+            )}
+          </Center>
           <Box as={"form"} mt={10}>
             <Link to="/createartwork/step2" state={{ uploadedUrl }}>
               <Button

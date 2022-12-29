@@ -34,23 +34,27 @@ const Step2 = () => {
   );
 
   return (
-    <Box pt={35}>
+    <Box pt={25}>
       <Box
         display="flex"
         alignItems="center"
         justifyContent="center"
-        p={4}
+        p={1}
         bg={"gray.900"}
-        mx={"25rem"}
+        mx={"20rem"}
         borderRadius={"7px"}
-        my={"5rem"}>
+        my={"2rem"}>
         <Stack
           bg={"gray.900"}
           rounded={"xl"}
           p={{ base: 4, sm: 6, md: 8 }}
           spacing={{ base: 8 }}
-          maxW={{ lg: "lg" }}>
-          <Stack spacing={4}>
+          maxW={{}}>
+          <Stack
+            spacing={4}
+            display="flex"
+            justifyContent="center"
+            alignItems="center">
             <Heading
               color={"gray.300"}
               lineHeight={1.1}

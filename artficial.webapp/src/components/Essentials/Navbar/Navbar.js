@@ -15,11 +15,13 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Text,
   useColorMode,
   Center,
+  Heading,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-//import logo from './ARTficial.png'
+import logo from "./ARTficial.png";
 
 const NavLink = ({ children }) => (
   <Link
@@ -50,7 +52,18 @@ export default function Navbar() {
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box>
             <Link to="/">
-              <img src="" alt="logo" style={{ paddingTop: "0px" }} />
+              <Heading
+                lineHeight={1.1}
+                fontSize={{ base: "1xl", sm: "1xl", md: "1xl", lg: "2xl" }}>
+                ART 
+                <Text
+                  as={"span"}
+                  bgGradient="linear(to-r, red.400,pink.400)"
+                  bgClip="text">
+                  ficial.
+                </Text>{" "}
+                {/* with our user-friendly platform */}
+              </Heading>
             </Link>
           </Box>
 
@@ -106,8 +119,8 @@ export default function Navbar() {
                     </Center>
                     <br />
                     <MenuDivider />
-                    <MenuItem>Your Servers</MenuItem>
-                    <MenuItem>Account Settings</MenuItem>
+                    <MenuItem>View your profile</MenuItem>
+                    <MenuItem>Your Artworks</MenuItem>
                     <MenuItem onClick={handleClick}>Logout</MenuItem>
                   </MenuList>
                 </Menu>
