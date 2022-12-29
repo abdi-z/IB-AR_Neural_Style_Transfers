@@ -12,6 +12,7 @@ import {
   Box,
   FormControl,
   FormLabel,
+  Center,
   Input,
   FormHelperText,
 } from "@chakra-ui/react";
@@ -41,10 +42,9 @@ const Step3 = () => {
       });
   };
   return (
-    <Box pt={35}>
+    <Box>
       <Box
         display="flex"
-        alignItems="center"
         justifyContent="center"
         p={4}
         bg={"gray.900"}
@@ -58,27 +58,28 @@ const Step3 = () => {
           spacing={{ base: 8 }}
           maxW={{ lg: "lg" }}>
           <Stack spacing={4}>
-            <Heading
-              color={"gray.300"}
-              lineHeight={1.1}
-              fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
-              Generate image
-              <Text
-                as={"span"}
-                bgGradient="linear(to-r, red.400,pink.400)"
-                bgClip="text">
-                !
-              </Text>
-            </Heading>
+            <Center>
+              <Heading
+                color={"gray.300"}
+                lineHeight={1.1}
+                fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
+                Generate image
+                <Text
+                  as={"span"}
+                  bgGradient="linear(to-r, red.400,pink.400)"
+                  bgClip="text">
+                  !
+                </Text>
+              </Heading>
+            </Center>
             <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
               Click the button below to apply stylization.
             </Text>
             <Stack direction="row"></Stack>
           </Stack>
-          <Box as={"form"} mt={10}>
+          <Box>
             <Button
               fontFamily={"heading"}
-              mt={8}
               w={"full"}
               bgGradient="linear(to-r, red.900,pink.400)"
               color={"white"}
@@ -90,22 +91,22 @@ const Step3 = () => {
               Generate!
             </Button>
           </Box>
-          {error && <h1>error</h1>}
-          {loading ? (
-            <Spinner color="red.500" />
-          ) : (
-            <Image
-              boxSize="150px"
-              objectFit="cover"
-              src={generatedImageURL}
-             
-            />
-          )}
+          <Center>
+            {error && <h1>error</h1>}
+            {loading ? (
+              <Spinner color="red.500" />
+            ) : (
+              <Image
+                boxSize="150px"
+                objectFit="cover"
+                src={generatedImageURL}
+              />
+            )}
+          </Center>
           <Box as={"form"} mt={10}>
             <Link to="/createartwork/step1">
               <Button
                 fontFamily={"heading"}
-                mt={8}
                 w={"full"}
                 bgGradient="linear(to-r, blue.400,pink.400)"
                 color={"white"}

@@ -48,8 +48,7 @@ const Step2 = () => {
           bg={"gray.900"}
           rounded={"xl"}
           p={{ base: 4, sm: 6, md: 8 }}
-          spacing={{ base: 8 }}
-          maxW={{}}>
+          spacing={{ base: 8 }}>
           <Stack
             spacing={4}
             display="flex"
