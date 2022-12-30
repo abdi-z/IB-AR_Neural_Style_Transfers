@@ -96,11 +96,13 @@ const Step3 = () => {
             {loading ? (
               <Spinner color="red.500" />
             ) : (
-              <Image
-                boxSize="150px"
-                objectFit="cover"
-                src={generatedImageURL}
-              />
+              generatedImageURL && (
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src={generatedImageURL}
+                />
+              )
             )}
           </Center>
           <Box as={"form"} mt={10}>
