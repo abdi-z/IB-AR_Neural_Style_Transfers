@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLogout } from "../../../hooks/useLogout";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { ReactNode } from "react";
+import { HStack, VStack, Stack } from "@chakra-ui/react";
 import {
   Box,
   Flex,
@@ -14,7 +15,6 @@ import {
   MenuDivider,
   useDisclosure,
   useColorModeValue,
-  Stack,
   Text,
   useColorMode,
   Center,
@@ -50,12 +50,12 @@ export default function Navbar() {
     <>
       <Box bg={useColorModeValue("gray.200", "gray.900")} px={5}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box>
+          <HStack>
             <Link to="/">
               <Heading
                 lineHeight={1.1}
                 fontSize={{ base: "1xl", sm: "1xl", md: "1xl", lg: "2xl" }}>
-                ART 
+                ART
                 <Text
                   as={"span"}
                   bgGradient="linear(to-r, red.400,pink.400)"
@@ -65,7 +65,20 @@ export default function Navbar() {
                 {/* with our user-friendly platform */}
               </Heading>
             </Link>
-          </Box>
+            <Link to="/allartworks">
+              <Button
+                fontFamily={"heading"}
+                w={"full"}
+                bgGradient="linear(to-r, red.900,pink.400)"
+                color={"white"}
+                _hover={{
+                  bgGradient: "linear(to-r, red.900,pink.900)",
+                  boxShadow: "xl",
+                }}>
+                Check Artworks
+              </Button>
+            </Link>
+          </HStack>
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
