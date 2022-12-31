@@ -6,6 +6,7 @@ import { Stack } from "@chakra-ui/react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { Spinner } from "@chakra-ui/react";
+import { saveAs } from "file-saver";
 
 import { Button, Heading, Text } from "@chakra-ui/react";
 import {
@@ -24,6 +25,9 @@ const Step3 = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [generatedImageURL, setGeneratedImageURL] = React.useState();
+  const downloadImage = () => {
+    saveAs(generatedImageURL, "image.png"); // Put your image url here.
+  };
   const generateImage = () => {
     setLoading(true);
     axios
@@ -78,7 +82,21 @@ const Step3 = () => {
             <Stack direction="row"></Stack>
           </Stack>
           <Box>
+            {generatedImageURL?(
             <Button
+              fontFamily={"heading"}
+              w={"full"}
+              bgGradient="linear(to-r, red.900,pink.400)"
+              color={"white"}
+              _hover={{
+                bgGradient: "linear(to-r, red.900,pink.900)",
+                boxShadow: "xl",
+              }}
+              onClick={downloadImage}>
+              Download!
+            </Button>
+            ):
+            (<Button
               fontFamily={"heading"}
               w={"full"}
               bgGradient="linear(to-r, red.900,pink.400)"
@@ -90,6 +108,7 @@ const Step3 = () => {
               onClick={generateImage}>
               Generate!
             </Button>
+            )}
           </Box>
           <Center>
             {error && <h1>error</h1>}
