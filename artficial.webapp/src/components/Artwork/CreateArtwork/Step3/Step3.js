@@ -26,7 +26,7 @@ const Step3 = () => {
   const [error, setError] = useState(false);
   const [generatedImageURL, setGeneratedImageURL] = React.useState();
   const downloadImage = () => {
-    saveAs(generatedImageURL, "image.png"); // Put your image url here.
+    saveAs(generatedImageURL, "ARTficial.png"); // Put your image url here.
   };
   const generateImage = () => {
     setLoading(true);
@@ -82,32 +82,32 @@ const Step3 = () => {
             <Stack direction="row"></Stack>
           </Stack>
           <Box>
-            {generatedImageURL?(
-            <Button
-              fontFamily={"heading"}
-              w={"full"}
-              bgGradient="linear(to-r, red.900,pink.400)"
-              color={"white"}
-              _hover={{
-                bgGradient: "linear(to-r, red.900,pink.900)",
-                boxShadow: "xl",
-              }}
-              onClick={downloadImage}>
-              Download!
-            </Button>
-            ):
-            (<Button
-              fontFamily={"heading"}
-              w={"full"}
-              bgGradient="linear(to-r, red.900,pink.400)"
-              color={"white"}
-              _hover={{
-                bgGradient: "linear(to-r, red.900,pink.900)",
-                boxShadow: "xl",
-              }}
-              onClick={generateImage}>
-              Generate!
-            </Button>
+            {generatedImageURL ? (
+              <Button
+                fontFamily={"heading"}
+                w={"full"}
+                bgGradient="linear(to-r, red.900,pink.400)"
+                color={"white"}
+                _hover={{
+                  bgGradient: "linear(to-r, red.900,pink.900)",
+                  boxShadow: "xl",
+                }}
+                onClick={downloadImage}>
+                Download!
+              </Button>
+            ) : (
+              <Button
+                fontFamily={"heading"}
+                w={"full"}
+                bgGradient="linear(to-r, red.900,pink.400)"
+                color={"white"}
+                _hover={{
+                  bgGradient: "linear(to-r, red.900,pink.900)",
+                  boxShadow: "xl",
+                }}
+                onClick={generateImage}>
+                Generate!
+              </Button>
             )}
           </Box>
           <Center>
