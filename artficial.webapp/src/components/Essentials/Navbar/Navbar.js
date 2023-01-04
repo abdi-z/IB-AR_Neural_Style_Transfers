@@ -39,7 +39,6 @@ const NavLink = ({ children }) => (
 );
 
 export default function Navbar() {
-  
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { logout } = useLogout();
@@ -48,7 +47,6 @@ export default function Navbar() {
   const handleClick = () => {
     navigate("/login");
     logout();
-
   };
   return (
     <>

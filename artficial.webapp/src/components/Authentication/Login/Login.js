@@ -24,7 +24,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(email, password);
-    navigate("/allartworks");
   };
 
   return (
@@ -68,6 +67,7 @@ const Login = () => {
                 <Checkbox>Remember me</Checkbox>
                 <Link color={"blue.400"}>Forgot password?</Link>
               </Stack>
+              {error && <Text>Username/Password incorrect</Text>}
               <Button
                 bg={"blue.400"}
                 color={"white"}
