@@ -17,6 +17,7 @@ import {
   Input,
   FormHelperText,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 const Step3 = () => {
   const { styleLink, uploadedUrl } = useLocation().state;
@@ -46,7 +47,10 @@ const Step3 = () => {
       });
   };
   return (
-    <Box>
+    <motion.Box
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.1 } }}>
       <Box
         display="flex"
         justifyContent="center"
@@ -141,7 +145,7 @@ const Step3 = () => {
           </Box>
         </Stack>
       </Box>
-    </Box>
+    </motion.Box>
   );
 };
 export default Step3;

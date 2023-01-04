@@ -5,7 +5,7 @@ import { Image } from "@chakra-ui/react";
 import { Stack } from "@chakra-ui/react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-
+import { motion } from "framer-motion";
 import { Button, Heading, Text } from "@chakra-ui/react";
 import {
   Box,
@@ -34,7 +34,11 @@ const Step2 = () => {
   );
 
   return (
-    <Box pt={25}>
+    <motion.Box
+      pt={25}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.1 } }}>
       <Box
         display="flex"
         alignItems="center"
@@ -132,7 +136,7 @@ const Step2 = () => {
           </Box>
         </Stack>
       </Box>
-    </Box>
+    </motion.Box>
   );
 };
 

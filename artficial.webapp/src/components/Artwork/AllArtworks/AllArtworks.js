@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 import { Center } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
 import { Flex, Spacer, Heading } from "@chakra-ui/react";
-// components
 import SingleArtwork from "../SingleArtwork/SingleArtwork";
-
+import { motion } from "framer-motion";
 const AllArtworks = () => {
   const { artworks, dispatch } = useArtworksContext();
   const [loading, setLoading] = useState(false);
@@ -31,10 +30,12 @@ const AllArtworks = () => {
   }, [dispatch]);
 
   return (
-    <Box p={4}>
-     <Heading>
-        Welcome to ARTficial!
-      </Heading>
+    <motion.Box
+      p={4}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.1 } }}>
+      <Heading>Welcome to ARTficial!</Heading>
       <SimpleGrid
         // m={1}
         minChildWidth="240px"
@@ -57,7 +58,7 @@ const AllArtworks = () => {
             />
           ))}
       </SimpleGrid>
-    </Box>
+    </motion.Box>
   );
 };
 

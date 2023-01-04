@@ -20,6 +20,7 @@ import ai2 from "./images/ai2.png";
 import ai3 from "./images/ai3.jpeg";
 import ai4 from "./images/ai4.jpg";
 import ai5 from "./images/ai5.jpeg";
+import { motion } from "framer-motion";
 
 const avatars = [
   {
@@ -46,7 +47,11 @@ const avatars = [
 
 export default function Preface() {
   return (
-    <Box position={"relative"}>
+    <motion.Box
+      position={"relative"}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.1 } }}>
       <Container
         as={SimpleGrid}
         maxW={"6xl"}
@@ -160,7 +165,6 @@ export default function Preface() {
               </Button>
             </Link>
           </Box>
-          
         </Stack>
       </Container>
       <Blur
@@ -169,7 +173,7 @@ export default function Preface() {
         left={-10}
         style={{ filter: "blur(70px)" }}
       />
-    </Box>
+    </motion.Box>
   );
 }
 

@@ -1,6 +1,13 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 
+import AnimatedRoutes from "./components/AnimatedRoutes/AnimatedRoutes";
 import AllArtworks from "./components/Artwork/AllArtworks/AllArtworks";
 import Preface from "./components/Artwork/CreateArtwork/Preface/Preface";
 import Navbar from "./components/Essentials/Navbar/Navbar";
@@ -18,17 +25,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/allartworks" element={<AllArtworks />} />
-          <Route path="/createartwork" element={<Preface />} />
-          <Route path="/createartwork/step1" element={<Step1 />} />
-          <Route path="/createartwork/step2" element={<Step2 />} />
-          <Route path="/createartwork/step3" element={<Step3 />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
+        <AnimatedRoutes />
         <Footer />
       </BrowserRouter>
     </div>

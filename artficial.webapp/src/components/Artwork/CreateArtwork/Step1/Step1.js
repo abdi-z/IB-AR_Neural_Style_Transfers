@@ -4,7 +4,7 @@ import { Image, CloudinaryContext } from "cloudinary-react";
 import { Center, Flex, Stack } from "@chakra-ui/react";
 import axios from "axios";
 import { Spinner } from "@chakra-ui/react";
-
+import { motion } from "framer-motion";
 import { Button, Heading, Text } from "@chakra-ui/react";
 import {
   Box,
@@ -37,7 +37,11 @@ const Step1 = () => {
   };
 
   return (
-    <Box pt={25}>
+    <motion.Box
+      pt={25}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.1 } }}>
       <Box
         display="flex"
         alignItems="center"
@@ -112,7 +116,7 @@ const Step1 = () => {
           </Box>
         </Stack>
       </Box>
-    </Box>
+    </motion.Box>
   );
 };
 
