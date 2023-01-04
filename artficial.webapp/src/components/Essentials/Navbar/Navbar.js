@@ -22,6 +22,7 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import logo from "./ARTficial.png";
+import { useNavigate } from "react-router-dom";
 
 const NavLink = ({ children }) => (
   <Link
@@ -38,13 +39,16 @@ const NavLink = ({ children }) => (
 );
 
 export default function Navbar() {
+  
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { logout } = useLogout();
   const { user } = useAuthContext();
-
+  const navigate = useNavigate();
   const handleClick = () => {
+    navigate("/login");
     logout();
+
   };
   return (
     <>
