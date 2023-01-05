@@ -12,7 +12,9 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  Center,
 } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -47,38 +49,49 @@ const Login = () => {
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           p={8}>
-          <Stack spacing={4}>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" onChange={(e) => setEmail(e.target.value)} />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: "column", sm: "row" }}
-                align={"start"}
-                justify={"space-between"}>
-                <Checkbox>Remember me</Checkbox>
-                <Link color={"blue.400"}>Forgot password?</Link>
+          {isLoading ? (
+            <Center>
+              <Spinner color="red.500" />
+            </Center>
+          ) : (
+            <Stack spacing={4}>
+              <FormControl id="email">
+                <FormLabel>Email address</FormLabel>
+                <Input
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </FormControl>
+              
+              <FormControl id="password">
+                <FormLabel>Password</FormLabel>
+                <Input
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </FormControl>
+              <Stack spacing={10}>
+                <Stack
+                  direction={{ base: "column", sm: "row" }}
+                  align={"center"}
+                  justify={"space-between"}>
+                  <Checkbox>Remember me</Checkbox>
+                  <Link color={"blue.400"} to="/signup">Don't have an account yet? </Link>
+                </Stack>
+                {error && <Text>Username/Password incorrect</Text>}
+                <Button
+                  bg={"blue.400"}
+                  color={"white"}
+                  _hover={{
+                    bg: "blue.500",
+                  }}
+                  onClick={handleSubmit}
+                  disabled={isLoading}>
+                  Sign in
+                </Button>
               </Stack>
-              {error && <Text>Username/Password incorrect</Text>}
-              <Button
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-                onClick={handleSubmit}>
-                Sign in
-              </Button>
             </Stack>
-          </Stack>
+          )}
         </Box>
       </Stack>
     </motion.Flex>
