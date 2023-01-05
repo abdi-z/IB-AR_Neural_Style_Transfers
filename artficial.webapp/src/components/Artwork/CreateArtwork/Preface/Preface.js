@@ -57,8 +57,8 @@ export default function Preface() {
         maxW={"6xl"}
         columns={{ base: 1, md: 2 }}
         spacing={{ base: 10, lg: 32 }}
-        py={{ base: 10, sm: 20, lg: 20 }}>
-        <Stack spacing={{ base: 10, md: 20 }}>
+        py={{ base: 2, sm: 20, lg: 20 }}>
+        <Stack spacing={{ base: 10, md: 10 }}>
           <Heading
             lineHeight={1.1}
             fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}>
@@ -80,7 +80,7 @@ export default function Preface() {
                   src={avatar.url}
                   size={{ base: "lg", md: "lg" }}
                   position={"relative"}
-                  zIndex={2}
+                  zIndex={1}
                   _before={{
                     content: '""',
                     width: "full",
@@ -89,39 +89,13 @@ export default function Preface() {
                     // transform: "scale(1.125)",
                     //bgGradient: "linear(to-bl, red.400,pink.400)",
                     position: "absolute",
-                    zIndex: -1,
+                    zIndex: 1,
                     top: 0,
                     left: 0,
                   }}
                 />
               ))}
             </AvatarGroup>
-
-            {/* <Flex
-              align={"center"}
-              justify={"center"}
-              fontFamily={"heading"}
-              fontSize={{ base: "sm", md: "lg" }}
-              bg={"gray.800"}
-              color={"white"}
-              rounded={"full"}
-              minWidth={useBreakpointValue({ base: "44px", md: "60px" })}
-              minHeight={useBreakpointValue({ base: "44px", md: "60px" })}
-              position={"relative"}
-              _before={{
-                content: '""',
-                width: "full",
-                height: "full",
-                rounded: "full",
-                transform: "scale(1.125)",
-                bgGradient: "linear(to-bl, orange.400,yellow.400)",
-                position: "absolute",
-                zIndex: -1,
-                top: 0,
-                left: 0,
-              }}>
-              View
-            </Flex> */}
           </Stack>
         </Stack>
         <Stack
@@ -169,7 +143,7 @@ export default function Preface() {
       </Container>
       <Blur
         position={"absolute"}
-        top={-10}
+        top={20}
         left={-10}
         style={{ filter: "blur(70px)" }}
       />
