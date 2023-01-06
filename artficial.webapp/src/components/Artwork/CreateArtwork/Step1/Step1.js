@@ -24,17 +24,9 @@ const Step1 = () => {
   const [uploadedUrl, setUploadedUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [isImageSelected, setIsImageSelected] = useState(false);
 
-  const isLoading = false;
-  const setEmail = () => {
-    return 0;
-  };
-  const setPassword = () => {
-    return 0;
-  };
-  const handleSubmit = () => {
-    return 0;
-  };
+
 
   const uploadImage = () => {
     setLoading(true);
@@ -47,7 +39,9 @@ const Step1 = () => {
         // console.log(response);
         setLoading(false);
         setUploadedUrl(response.data.secure_url);
+        setIsImageSelected(true);
       });
+    
   };
 
   return (
@@ -71,11 +65,7 @@ const Step1 = () => {
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           p={8}>
-          {isLoading ? (
-            <Center>
-              <Spinner color="red.500" />
-            </Center>
-          ) : (
+           
             <Stack spacing={4}>
               <Center>
                 <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
@@ -116,14 +106,14 @@ const Step1 = () => {
                       _hover={{
                         bgGradient: "linear(to-r, red.400,pink.400)",
                         boxShadow: "xl",
-                      }}>
+                      }} disabled={!isImageSelected}>
                       Proceed
                     </Button>
                   </Link>
                 </Box>
               </Stack>
             </Stack>
-          )}
+        
         </Box>
       </Stack>
     </motion.Flex>
