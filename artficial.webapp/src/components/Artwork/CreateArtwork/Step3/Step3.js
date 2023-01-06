@@ -96,7 +96,7 @@ const Step3 = () => {
                   bgGradient: "linear(to-r, red.900,pink.900)",
                   boxShadow: "xl",
                 }}
-                onClick={downloadImage}>
+                onClick={downloadImage}> 
                 Download!
               </Button>
             ) : (
@@ -109,7 +109,7 @@ const Step3 = () => {
                   bgGradient: "linear(to-r, red.900,pink.900)",
                   boxShadow: "xl",
                 }}
-                onClick={generateImage}>
+                onClick={generateImage} disabled={loading}>
                 Generate!
               </Button>
             )}
@@ -138,7 +138,7 @@ const Step3 = () => {
                 _hover={{
                   bgGradient: "linear(to-r, red.400,pink.400)",
                   boxShadow: "xl",
-                }}>
+                }} disabled={loading}>
                 Back
               </Button>
             </Link>
