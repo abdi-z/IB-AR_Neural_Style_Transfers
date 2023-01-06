@@ -5,6 +5,8 @@ import { Center, Flex, Stack } from "@chakra-ui/react";
 import axios from "axios";
 import { Spinner } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 import { Button, Heading, Text } from "@chakra-ui/react";
 import {
   Box,
@@ -13,6 +15,7 @@ import {
   Input,
   FormHelperText,
 } from "@chakra-ui/react";
+import { Checkbox, useColorModeValue } from "@chakra-ui/react";
 
 const Step1 = () => {
   const [imageSelected, setImageSelected] = React.useState("");
@@ -21,6 +24,17 @@ const Step1 = () => {
   const [uploadedUrl, setUploadedUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const isLoading = false;
+  const setEmail = () => {
+    return 0;
+  };
+  const setPassword = () => {
+    return 0;
+  };
+  const handleSubmit = () => {
+    return 0;
+  };
 
   const uploadImage = () => {
     setLoading(true);
@@ -37,86 +51,82 @@ const Step1 = () => {
   };
 
   return (
-    <motion.Box
-      pt={25}
+    <motion.Flex
+      minH={"100vh"}
+      align={"center"}
+      justify={"center"}
+      bg={useColorModeValue("gray.50", "gray.800")}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.1 } }}>
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        p={4}
-        bg={"gray.900"}
-        mx={"25rem"}
-        borderRadius={"7px"}
-        my={"5rem"}>
-        <Stack
-          bg={"gray.900"}
-          rounded={"xl"}
-          p={{ base: 4, sm: 6, md: 8 }}
-          spacing={{ base: 8 }}
-          maxW={{ lg: "lg" }}>
-          <Center>
-            <Stack spacing={4}>
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <Heading
-                  color={"gray.300"}
-                  lineHeight={1.1}
-                  fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
-                  Let's get started
-                  <Text
-                    as={"span"}
-                    bgGradient="linear(to-r, red.400,pink.400)"
-                    bgClip="text">
-                    !
-                  </Text>
-                </Heading>
-              </Box>
-              <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                Start off by uploading the image to be stylized.
-              </Text>
-              <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                <input
-                  type="file"
-                  onChange={(e) => {
-                    setImageSelected(e.target.files[0]);
-                  }}
-                />
-                <Button onClick={uploadImage}>Upload</Button>
-              </Text>
-            </Stack>
-          </Center>
-          <Center>
-            {loading ? (
-              <Spinner color="red.500" />
-            ) : (
-              <Image
-                style={{ width: 200 }}
-                cloudName="dlx4hhpw2"
-                publicId={uploadedUrl}
-              />
-            )}
-          </Center>
-          <Box as={"form"} mt={10}>
-            <Link to="/createartwork/step2" state={{ uploadedUrl }}>
-              <Button
-                fontFamily={"heading"}
-                mt={8}
-                w={"full"}
-                bgGradient="linear(to-r, red.400,pink.400)"
-                color={"white"}
-                _hover={{
-                  bgGradient: "linear(to-r, red.400,pink.400)",
-                  boxShadow: "xl",
-                }}>
-                Proceed
-              </Button>
-            </Link>
-          </Box>
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+        <Stack align={"center"}>
+          <Heading fontSize={"4xl"}>Provide a content image.</Heading>
+          <Text fontSize={"lg"} color={"gray.600"}>
+            Upload your image <Link color={"blue.400"}> to get started</Link> ✌️
+          </Text>
         </Stack>
-      </Box>
-    </motion.Box>
+        <Box
+          rounded={"lg"}
+          bg={useColorModeValue("white", "gray.700")}
+          boxShadow={"lg"}
+          p={8}>
+          {isLoading ? (
+            <Center>
+              <Spinner color="red.500" />
+            </Center>
+          ) : (
+            <Stack spacing={4}>
+              <Center>
+                <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                  ⓘ You can upload image of any resolution and size. 
+                </Text>
+              </Center>
+              <Center>
+                <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                  <input
+                    type="file"
+                    onChange={(e) => {
+                      setImageSelected(e.target.files[0]);
+                    }}
+                  />
+                  <Button onClick={uploadImage}>Upload</Button>
+                </Text>
+              </Center>
+              <Stack>
+                <Center>
+                  {loading ? (
+                    <Spinner color="red.500" />
+                  ) : (
+                    <Image
+                      style={{ width: 200 }}
+                      cloudName="dlx4hhpw2"
+                      publicId={uploadedUrl}
+                    />
+                  )}
+                </Center>
+                <Box as={"form"} mt={10}>
+                  <Link to="/createartwork/step2" state={{ uploadedUrl }}>
+                    <Button
+                      fontFamily={"heading"}
+                      mt={8}
+                      w={"full"}
+                      bgGradient="linear(to-r, red.400,pink.400)"
+                      color={"white"}
+                      _hover={{
+                        bgGradient: "linear(to-r, red.400,pink.400)",
+                        boxShadow: "xl",
+                      }}>
+                      Proceed
+                    </Button>
+                  </Link>
+                </Box>
+              </Stack>
+            </Stack>
+          )}
+        </Box>
+      </Stack>
+    </motion.Flex>
   );
 };
 
