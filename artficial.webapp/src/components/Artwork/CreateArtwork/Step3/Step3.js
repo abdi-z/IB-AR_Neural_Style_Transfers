@@ -13,6 +13,7 @@ import {
   Box,
   FormControl,
   FormLabel,
+  useColorModeValue,
   Center,
   Input,
   FormHelperText,
@@ -47,106 +48,102 @@ const Step3 = () => {
       });
   };
   return (
-    <motion.Box
+    <motion.Flex
+      minH={"100vh"}
+      align={"center"}
+      justify={"center"}
+      bg={useColorModeValue("gray.50", "gray.800")}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.1 } }}>
-        
-      <Box
-        display="flex"
-        justifyContent="center"
-        p={4}
-        bg={"gray.900"}
-        mx={"25rem"}
-        borderRadius={"7px"}
-        my={"5rem"}>
-        <Stack
-          bg={"gray.900"}
-          rounded={"xl"}
-          p={{ base: 4, sm: 6, md: 8 }}
-          spacing={{ base: 8 }}
-          maxW={{ lg: "lg" }}>
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={2} >
+        <Stack align={"center"}>
+          <Heading fontSize={"4xl"} align={"center"}>Generate the stylized image.</Heading>
+          <Text fontSize={"lg"} color={"gray.600"}>
+            Finally, finish off by{" "}
+            <Link color={"blue.400"}> pressing the generate button.</Link> ✌️
+          </Text>
+        </Stack>
+        <Box
+          rounded={"lg"}
+          bg={useColorModeValue("white", "gray.700")}
+          boxShadow={"lg"}
+          px={0}
+          py={5}>
           <Stack spacing={4}>
             <Center>
-              <Heading
-                color={"gray.300"}
-                lineHeight={1.1}
-                fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
-                Generate image
-                <Text
-                  as={"span"}
-                  bgGradient="linear(to-r, red.400,pink.400)"
-                  bgClip="text">
-                  !
-                </Text>
-              </Heading>
+              <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                ⓘ The rendering may take time depending on size of image.
+              </Text>
             </Center>
-            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              Click the button below to apply stylization.
-            </Text>
-            <Stack direction="row"></Stack>
-          </Stack>
-          <Box>
-            {generatedImageURL ? (
-              <Button
-                fontFamily={"heading"}
-                w={"full"}
-                bgGradient="linear(to-r, red.900,pink.400)"
-                color={"white"}
-                _hover={{
-                  bgGradient: "linear(to-r, red.900,pink.900)",
-                  boxShadow: "xl",
-                }}
-                onClick={downloadImage}> 
-                Download!
-              </Button>
-            ) : (
-              <Button
-                fontFamily={"heading"}
-                w={"full"}
-                bgGradient="linear(to-r, red.900,pink.400)"
-                color={"white"}
-                _hover={{
-                  bgGradient: "linear(to-r, red.900,pink.900)",
-                  boxShadow: "xl",
-                }}
-                onClick={generateImage} disabled={loading}>
-                Generate!
-              </Button>
-            )}
-          </Box>
-          <Center>
-            {error && <h1>error</h1>}
-            {loading ? (
-              <Spinner color="red.500" />
-            ) : (
-              generatedImageURL && (
-                <Image
-                  boxSize="150px"
-                  objectFit="cover"
-                  src={generatedImageURL}
-                />
-              )
-            )}
-          </Center>
-          <Box as={"form"} mt={10}>
+            <Box>
+              {generatedImageURL ? (
+                <Center>
+                  <Button
+                    fontFamily={"heading"}
+                    w={"50%"}
+                    bgGradient="linear(to-r, red.900,pink.400)"
+                    color={"white"}
+                    _hover={{
+                      bgGradient: "linear(to-r, red.900,pink.900)",
+                      boxShadow: "xl",
+                    }}
+                    onClick={downloadImage}>
+                    Download!
+                  </Button>
+                </Center>
+              ) : (
+                <Center>
+                  <Button
+                    fontFamily={"heading"}
+                    w={"50%"}
+                    bgGradient="linear(to-r, red.900,pink.400)"
+                    color={"white"}
+                    _hover={{
+                      bgGradient: "linear(to-r, red.900,pink.900)",
+                      boxShadow: "xl",
+                    }}
+                    onClick={generateImage}
+                    disabled={loading}>
+                    Generate!
+                  </Button>
+                </Center>
+              )}
+            </Box>
+            <Center>
+              {error && <h1>Oops! An error occured</h1>}
+              {loading ? (
+                <Spinner color="red.500" />
+              ) : (
+                generatedImageURL && (
+                  <Image
+                    boxSize="350px"
+                    objectFit="cover"
+                    src={generatedImageURL}
+                  />
+                )
+              )}
+            </Center>
             <Link to="/createartwork/step1">
-              <Button
-                fontFamily={"heading"}
-                w={"full"}
-                bgGradient="linear(to-r, blue.400,pink.400)"
-                color={"white"}
-                _hover={{
-                  bgGradient: "linear(to-r, red.400,pink.400)",
-                  boxShadow: "xl",
-                }} disabled={loading}>
-                Back
-              </Button>
+              <Center>
+                <Button
+                  fontFamily={"heading"}
+                  w={"50%"}
+                  bgGradient="linear(to-r, blue.400,pink.400)"
+                  color={"white"}
+                  _hover={{
+                    bgGradient: "linear(to-r, red.400,pink.400)",
+                    boxShadow: "xl",
+                  }}
+                  disabled={loading}>
+                  Back
+                </Button>
+              </Center>
             </Link>
-          </Box>
-        </Stack>
-      </Box>
-    </motion.Box>
+          </Stack>
+        </Box>
+      </Stack>
+    </motion.Flex>
   );
 };
 export default Step3;
