@@ -13,6 +13,8 @@ import {
   FormLabel,
   Input,
   FormHelperText,
+  useColorModeValue,
+  Center,
 } from "@chakra-ui/react";
 
 const Step2 = () => {
@@ -34,45 +36,33 @@ const Step2 = () => {
   );
 
   return (
-    <motion.Box
-      pt={25}
+    <motion.Flex
+      minH={"100vh"}
+      align={"center"}
+      justify={"center"}
+      bg={useColorModeValue("gray.50", "gray.800")}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.1 } }}>
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        p={1}
-        bg={"gray.900"}
-        mx={"20rem"}
-        borderRadius={"7px"}
-        my={"2rem"}>
-        <Stack
-          bg={"gray.900"}
-          rounded={"xl"}
-          p={{ base: 4, sm: 6, md: 8 }}
-          spacing={{ base: 8 }}>
-          <Stack
-            spacing={4}
-            display="flex"
-            justifyContent="center"
-            alignItems="center">
-            <Heading
-              color={"gray.300"}
-              lineHeight={1.1}
-              fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
-              Select a style preset
-              <Text
-                as={"span"}
-                bgGradient="linear(to-r, red.400,pink.400)"
-                bgClip="text">
-                !
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={2}>
+        <Stack align={"center"}>
+          <Heading fontSize={"4xl"}>Select a style to apply.</Heading>
+          <Text fontSize={"lg"} color={"gray.600"}>
+            Upload your image <Link color={"blue.400"}> to get started</Link> ✌️
+          </Text>
+        </Stack>
+        <Box
+          rounded={"lg"}
+          bg={useColorModeValue("white", "gray.700")}
+          boxShadow={"lg"}
+          px={8}
+          py={5}>
+          <Stack spacing={4}>
+            <Center>
+              <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                ⓘ You can upload image of any resolution and size.
               </Text>
-            </Heading>
-            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              Select one of the following the style presets.
-            </Text>
+            </Center>
             <Stack direction="row">
               <Link
                 to="/createartwork/step3"
@@ -116,27 +106,26 @@ const Step2 = () => {
                 />
               </Link>
             </Stack>
+            <Box as={"form"} mt={10}>
+              <Link to="/createartwork/step1">
+                <Button
+                  fontFamily={"heading"}
+                  mt={8}
+                  w={"full"}
+                  bgGradient="linear(to-r, red.400,pink.400)"
+                  color={"white"}
+                  _hover={{
+                    bgGradient: "linear(to-r, red.400,pink.400)",
+                    boxShadow: "xl",
+                  }}>
+                  Back
+                </Button>
+              </Link>
+            </Box>
           </Stack>
-
-          <Box as={"form"} mt={10}>
-            <Link to="/createartwork/step1">
-              <Button
-                fontFamily={"heading"}
-                mt={8}
-                w={"full"}
-                bgGradient="linear(to-r, red.400,pink.400)"
-                color={"white"}
-                _hover={{
-                  bgGradient: "linear(to-r, red.400,pink.400)",
-                  boxShadow: "xl",
-                }}>
-                Back
-              </Button>
-            </Link>
-          </Box>
-        </Stack>
-      </Box>
-    </motion.Box>
+        </Box>
+      </Stack>
+    </motion.Flex>
   );
 };
 
