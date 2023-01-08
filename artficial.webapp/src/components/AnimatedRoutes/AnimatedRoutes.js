@@ -7,7 +7,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
-
+import { Error } from "../Essentials/Error/Error";
 import AllArtworks from "../Artwork/AllArtworks/AllArtworks";
 import Preface from "../Artwork/CreateArtwork/Preface/Preface";
 import Navbar from "../Essentials/Navbar/Navbar";
@@ -40,6 +40,7 @@ function AnimatedRoutes() {
           path="/signup"
           element={user ? <Navigate to="/" /> : <Signup />}
         />
+        <Route path="*" element={<Error />} />
       </Routes>
     </AnimatePresence>
   );
