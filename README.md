@@ -15,7 +15,7 @@ Technologies to be added:
 - WebSockets
 - Redis
 - Auth0
-- AWS S3
+- AWS S3/Azure(pref)
 - Kubernetes
 - GraphQL (migration later from REST)
 
