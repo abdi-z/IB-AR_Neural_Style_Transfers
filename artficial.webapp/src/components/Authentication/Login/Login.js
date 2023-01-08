@@ -55,15 +55,15 @@ const Login = () => {
             </Center>
           ) : (
             <Stack spacing={4}>
-              <FormControl id="email">
+              <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
                 <Input
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </FormControl>
-              
-              <FormControl id="password">
+
+              <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
                 <Input
                   type="password"
@@ -76,9 +76,13 @@ const Login = () => {
                   align={"center"}
                   justify={"space-between"}>
                   <Checkbox>Remember me</Checkbox>
-                  <Link color={"blue.400"} to="/signup">Don't have an account yet? </Link>
+                  <Link color={"blue.400"} to="/signup">
+                    Don't have an account yet?{" "}
+                  </Link>
                 </Stack>
-                {error && <Text>Username/Password incorrect</Text>}
+                <Center>
+                  {error && <Text color={"red.400"}>  ⓘ Email/Password combination incorrect.</Text>}
+                </Center>
                 <Button
                   bg={"blue.400"}
                   color={"white"}

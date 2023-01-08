@@ -78,7 +78,7 @@ const Signup = () => {
             Sign up
           </Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
+            Register your account here to start your journey with us
           </Text>
         </Stack>
         <Box
@@ -140,7 +140,7 @@ const Signup = () => {
                   </Stack>
                 </RadioGroup>
               </Center>
-              <FormControl id="email" isRequired>
+              <FormControl id="email" isRequired pt={2}>
                 <FormLabel>Profile Photo</FormLabel>
                 <Center>
                   <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
