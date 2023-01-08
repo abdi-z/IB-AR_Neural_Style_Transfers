@@ -16,6 +16,6 @@ Technologies to be added:
 - Redis
 - Auth0
 - AWS S3/Azure(pref)
-- Kubernetes
+- Kubernetes and dockerize (https://www.youtube.com/watch?v=H47DI8jMItE&ab_channel=CloudGuru)
 - GraphQL (migration later from REST)
 
