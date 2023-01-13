@@ -33,7 +33,7 @@ const Step3 = () => {
   const generateImage = () => {
     setLoading(true);
     axios
-      .post("http://localhost:5000/nst", {
+      .post("http://localhost:5000/api/v1/nst", {
         styleImageURL: styleLink,
         contentImageURL: uploadedUrl,
       })

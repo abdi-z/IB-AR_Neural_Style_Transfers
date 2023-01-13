@@ -22,14 +22,14 @@ app.use((req,res,next)=>{
 })
 
 app.use('/',index)
-app.use('/api/artworks',artworkRoutes)
-app.use('/api/users',userRoutes)
-app.use('/api/artistPresets',artistPresets)
-app.use('/api/categories',categories)
-app.use('/api/galleries',galleries)
-app.use('/api/promotedArtworks',promotedArtworks)
-app.use('/api/reportArtworks',reportArtworks)
-app.use('/api/themePresets',themePresets)
+app.use('/api/v1/artworks',artworkRoutes)
+app.use('/api/v1/users',userRoutes)
+app.use('/api/v1/artistPresets',artistPresets)
+app.use('/api/v1/categories',categories)
+app.use('/api/v1/galleries',galleries)
+app.use('/api/v1/promotedArtworks',promotedArtworks)
+app.use('/api/v1/reportArtworks',reportArtworks)
+app.use('/api/v1/themePresets',themePresets)
 
 
 

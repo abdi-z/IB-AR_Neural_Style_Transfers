@@ -36,7 +36,7 @@ def hello():
     return render_template('index.html')
 
 
-@app.route('/nst', methods=['POST'])
+@app.route('/api/v1/nst', methods=['POST'])
 #@limiter.limit('10/minute', error_message="Sorry, you have exceeded the rate limit for this endpoint.")
 def predict():
     data = request.get_json()
