@@ -37,7 +37,7 @@ app.use('/api/v1/themePresets',themePresets)
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
     app.listen(process.env.PORT,()=>{
-        console.log("listening on 4000")
+        console.log("live: listening on 4000")
     })
 })
 .catch((err)=>{console.log(err)})
