@@ -17,18 +17,21 @@ export const useSignup = () => {
     setIsLoading(true);
     setError(null);
     console.log("useSignup : ", email);
-    const response = await fetch("/api/v1/users/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email,
-        password,
-        userName,
-        phoneNumber,
-        gender,
-        avatarImgURL,
-      }),
-    });
+    const response = await fetch(
+      "https://ib-arneuralstyletransfers-production.up.railway.app/api/v1/users/signup",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          password,
+          userName,
+          phoneNumber,
+          gender,
+          avatarImgURL,
+        }),
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {
