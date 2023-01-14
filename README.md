@@ -1,21 +1,12 @@
-General Repo for Final Year Project (R&D) 2023
-Title: ARTficial
-Domain: Computer Vision
 
-The repo will mainly contain all markup, resources for dataset etc, and other docs.
-
-Target: (Everything must be responsive)
-Add error page
-Add home page
-Add profile page
-Add post creation page
-
+ARTficial, the ultimate image stylization web application. ARTficial allows users to easily register and access a wide variety of filters to give your images a unique and artistic look. With ARTficial, you can turn your ordinary photos into works of art with just a few clicks. Whether you're a professional photographer or a casual user, our user-friendly interface and easy-to-use tools make it simple to stylize your images to your exact specifications. So why wait? Sign up today and start creating stunning images with ARTficial!
 
 Technologies to be added:
 - WebSockets
 - Redis
 - Auth0
 - AWS S3/Azure(pref)
-- Kubernetes and dockerize (https://www.youtube.com/watch?v=H47DI8jMItE&ab_channel=CloudGuru)
+- Kubernetes and dockerize
 - GraphQL (migration later from REST)
 
+THIS REPOSIOTRY IS PRIVATE.
