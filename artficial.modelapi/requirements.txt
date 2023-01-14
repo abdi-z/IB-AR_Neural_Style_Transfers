@@ -1,0 +1,10 @@
+flask
+flask_cors
+flask_limiter
+tensorflow-hub
+tensorflow
+matplotlib
+numpy
+cv2
+cloudinary
+cloudinary.uploader
