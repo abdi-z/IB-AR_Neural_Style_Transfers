@@ -66,41 +66,57 @@ const Step2 = () => {
             <Stack direction="row">
               <Link
                 to="/createartwork/step3"
-                state={{ styleLink: michelangelo, uploadedUrl }}>
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg",
+                  uploadedUrl,
+                }}>
                 <Image
                   boxSize="150px"
                   objectFit="cover"
-                  src={michelangelo}
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg"
                   alt="Dan Abramov"
                 />
               </Link>
               <Link
                 to="/createartwork/step3"
-                state={{ styleLink: leonardo, uploadedUrl }}>
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg",
+                  uploadedUrl,
+                }}>
                 <Image
                   boxSize="150px"
                   objectFit="cover"
-                  src={leonardo}
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg"
                   alt="Dan Abramov"
                 />
               </Link>
               <Link
                 to="/createartwork/step3"
-                state={{ styleLink: monet, uploadedUrl }}>
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg",
+                  uploadedUrl,
+                }}>
                 <Image
                   boxSize="150px"
                   objectFit="cover"
-                  src={monet}
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg"
                   alt="Dan Abramov"
                 />
               </Link>
               <Link
                 to="/createartwork/step3"
-                state={{ styleLink: vangogh, uploadedUrl }}>
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg",
+                  uploadedUrl,
+                }}>
                 <Image
                   boxSize="150px"
                   objectFit="cover"
-                  src={vangogh}
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg"
                   alt="Dan Abramov"
                   text="hello"
                 />
