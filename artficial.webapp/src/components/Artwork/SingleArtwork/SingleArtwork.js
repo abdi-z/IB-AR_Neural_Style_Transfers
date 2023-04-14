@@ -30,7 +30,6 @@ const SingleArtwork = ({ artwork }) => {
       dispatch({ type: "DELETE_ARTWORKS", payload: json });
     }
   };
-
   return (
     <Card maxW="sm">
       <CardBody>
@@ -57,9 +56,11 @@ const SingleArtwork = ({ artwork }) => {
               View now
             </Button>
           </Link>
-          <Button variant="ghost" colorScheme="blue">
-            View creator
-          </Button>
+          <Link to={`/creator/${artwork.createdByID}`}>
+            <Button variant="ghost" colorScheme="blue">
+              View creator
+            </Button>
+          </Link>
         </ButtonGroup>
       </CardFooter>
     </Card>

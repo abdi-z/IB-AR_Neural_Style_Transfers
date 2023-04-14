@@ -20,16 +20,20 @@ import Step1 from "../Artwork/CreateArtwork/Step1/Step1";
 import Step2 from "../Artwork/CreateArtwork/Step2/Step2";
 import Step3 from "../Artwork/CreateArtwork/Step3/Step3";
 import { AnimatePresence } from "framer-motion";
+import Creator from "../Creator/Creator";
 
 function AnimatedRoutes() {
   const location = useLocation();
   const { user } = useAuthContext();
+
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/allartworks" element={<AllArtworks />} />
         <Route path="/allartworks/:id" element={<ArtworksDetail />} />
+        <Route path="/creator/:id" element={<Creator />} />
+
         <Route
           path="/createartwork"
           element={user ? <Preface /> : <Navigate to="/login" />}

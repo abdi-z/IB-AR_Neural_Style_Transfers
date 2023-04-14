@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 
 const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "1d" });
@@ -49,4 +50,14 @@ const getAllUsers = async (req, res) => {
   const users = await User.find({}).sort({ createdAt: -1 });
   res.status(200).json(users);
 };
-module.exports = { loginUser, signupUser, getAllUsers };
+
+//get all users
+const getSingleUser = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id))
+    res.status(404).json({ error: "Invalid id" });
+  const user = await User.findById(id);
+  res.status(200).json(user);
+  if (!user) return res.status(400).json({ error: "No user found" });
+};
+module.exports = { loginUser, signupUser, getAllUsers, getSingleUser };

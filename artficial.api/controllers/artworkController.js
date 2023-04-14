@@ -1,4 +1,5 @@
 const Artwork = require("../models/artwork");
+const User = require("../models/user");
 const mongoose = require("mongoose");
 
 //get all
@@ -13,6 +14,11 @@ const getSingleArtwork = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id))
     res.status(404).json({ error: "Invalid id" });
   const artwork = await Artwork.findById(id);
+
+  const user = await User.findById(artwork.createdByID);
+  const userName = user.userName;
+  res.header("Access-Control-Expose-Headers", "creator");
+  res.set("creator", userName.toString());
   res.status(200).json(artwork);
   if (!artwork) return res.status(400).json({ error: "No artwork found" });
 };
@@ -28,7 +34,7 @@ const createArtwork = async (req, res) => {
     nftLink,
     presetID,
   } = req.body;
-  
+
   try {
     const artwork = await Artwork.create({
       title,
