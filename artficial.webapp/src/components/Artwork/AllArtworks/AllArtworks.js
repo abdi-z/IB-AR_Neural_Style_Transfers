@@ -16,7 +16,7 @@ const AllArtworks = () => {
     const fetchArtworks = async () => {
       setLoading(true);
       const response = await fetch(
-        "https://ib-arneuralstyletransfers-production.up.railway.app/api/v1/artworks/"
+        "http://localhost:4000/api/v1/artworks"
       );
       const json = await response.json();
 

@@ -18,7 +18,7 @@ export const useSignup = () => {
     setError(null);
     console.log("useSignup : ", email);
     const response = await fetch(
-      "https://ib-arneuralstyletransfers-production.up.railway.app/api/v1/users/signup",
+      "http://localhost:4000/api/v1/users/signup",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

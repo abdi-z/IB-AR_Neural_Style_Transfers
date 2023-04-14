@@ -15,6 +15,7 @@ import Footer from "../Essentials/Footer/Footer";
 import Login from "../Authentication/Login/Login";
 import Signup from "../Authentication/Signup/Signup";
 import Home from "../Essentials/Home/Home";
+import ArtworksDetail from "../Artwork/Details/ArtworksDetail";
 import Step1 from "../Artwork/CreateArtwork/Step1/Step1";
 import Step2 from "../Artwork/CreateArtwork/Step2/Step2";
 import Step3 from "../Artwork/CreateArtwork/Step3/Step3";
@@ -28,6 +29,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/allartworks" element={<AllArtworks />} />
+        <Route path="/allartworks/:id" element={<ArtworksDetail />} />
         <Route
           path="/createartwork"
           element={user ? <Preface /> : <Navigate to="/login" />}

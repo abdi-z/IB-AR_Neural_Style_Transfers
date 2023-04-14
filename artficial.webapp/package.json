@@ -1,5 +1,4 @@
 {
-  "proxy": "http://localhost:4000/",
   "name": "artficial.webapp",
   "version": "0.1.0",
   "private": true,
@@ -23,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-icons": "^4.7.1",
+    "react-paginate": "^8.1.4",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
