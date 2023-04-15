@@ -1,26 +1,36 @@
-import { useEffect, useState } from "react";
-import { useArtworksContext } from "../../../hooks/useArtworksContext";
-import { Box, Button, SimpleGrid } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import { Center } from "@chakra-ui/react";
-import { Spinner } from "@chakra-ui/react";
-import { Flex, Spacer, Heading } from "@chakra-ui/react";
-import SingleArtwork from "../SingleArtwork/SingleArtwork";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import {
+  Spinner,
+  Center,
+  Heading,
+  SimpleGrid,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import SingleArtwork from "../Artwork/SingleArtwork/SingleArtwork";
 import { motion } from "framer-motion";
 
-const AllArtworks = () => {
-  const { artworks, dispatch } = useArtworksContext();
+const CreatorArts = () => {
+  const { id } = useParams();
+  const [artworks, setArtworks] = useState(null);
+  const [creator, setCreator] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const color = useColorModeValue("red.700", "red.200");
 
   useEffect(() => {
     const fetchArtworks = async () => {
       setLoading(true);
-      const response = await fetch("http://localhost:4000/api/v1/artworks");
+      const response = await fetch(
+        "http://localhost:4000/api/v1/artworks/creator/" + id
+      );
       const json = await response.json();
 
       if (response.ok) {
-        dispatch({ type: "SET_ARTWORKS", payload: json });
+        setArtworks(json);
+        const creator = response.headers.get("creator");
+        setCreator(creator);
       } else {
         setError(true);
       }
@@ -28,7 +38,7 @@ const AllArtworks = () => {
     };
 
     fetchArtworks();
-  }, [dispatch]);
+  }, []);
 
   return (
     <motion.Box
@@ -37,7 +47,7 @@ const AllArtworks = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.1 } }}
     >
-      <Heading>Welcome to ARTficial!</Heading>
+      <Heading>Artworks by {creator}</Heading>
       <SimpleGrid
         // m={1}
         minChildWidth="240px"
@@ -65,4 +75,4 @@ const AllArtworks = () => {
   );
 };
 
-export default AllArtworks;
+export default CreatorArts;

@@ -8,6 +8,18 @@ const getArtworks = async (req, res) => {
   res.status(200).json(artworks);
 };
 
+//get all by creator
+const getArtworksByCreator = async (req, res) => {
+  const createdByID = req.params.id;
+  const artworks = await Artwork.find({ createdByID }).sort({ createdAt: -1 });
+
+  const user = await User.findById(artworks[0].createdByID);
+  const userName = user.userName;
+  res.header("Access-Control-Expose-Headers", "creator");
+  res.set("creator", userName.toString());
+  res.status(200).json(artworks);
+};
+
 //get single
 const getSingleArtwork = async (req, res) => {
   const { id } = req.params;
@@ -82,6 +94,7 @@ const updateArtwork = async (req, res) => {
 
 module.exports = {
   getArtworks,
+  getArtworksByCreator,
   getSingleArtwork,
   createArtwork,
   deleteSingleArtwork,

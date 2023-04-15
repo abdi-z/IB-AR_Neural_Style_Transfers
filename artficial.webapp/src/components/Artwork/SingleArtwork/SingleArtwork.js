@@ -30,6 +30,7 @@ const SingleArtwork = ({ artwork }) => {
       dispatch({ type: "DELETE_ARTWORKS", payload: json });
     }
   };
+
   return (
     <Card maxW="sm">
       <CardBody>

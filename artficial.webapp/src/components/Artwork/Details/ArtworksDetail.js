@@ -16,6 +16,7 @@ const ArtworksDetail = () => {
   const { id } = useParams();
   const [artwork, setArtwork] = useState(null);
   const [creator, setCreator] = useState(null);
+
   const color = useColorModeValue("white", "gray.800");
 
   let imgURL =
@@ -42,7 +43,7 @@ const ArtworksDetail = () => {
             <Box w="80%" padding={10}>
               <Center py={2}>
                 <Box
-                  bgGradient="linear(to-l, #7928CA, #FF0080)"
+                  bgGradient="linear(to-l, #ffaa4e, #EF0070)"
                   bgClip="text"
                   fontWeight="extrabold"
                   display="inline-block"
@@ -54,7 +55,7 @@ const ArtworksDetail = () => {
                     height: "6px",
                     bottom: "-4px",
                     left: 0,
-                    background: "linear-gradient(to right, #7928CA, #FF0080)",
+                    background: "linear-gradient(to right, #ffaa4e, #EF0070)",
                   }}
                 >
                   <Text fontSize={["3xl", "4xl", "5xl", "6xl"]}>
