@@ -33,7 +33,8 @@ const NavLink = ({ children }) => (
       textDecoration: "none",
       bg: useColorModeValue("gray.200", "gray.700"),
     }}
-    href={"#"}>
+    href={"#"}
+  >
     {children}
   </Link>
 );
@@ -56,12 +57,14 @@ export default function Navbar() {
             <Link to="/">
               <Heading
                 lineHeight={1.1}
-                fontSize={{ base: "1xl", sm: "1xl", md: "1xl", lg: "2xl" }}>
+                fontSize={{ base: "1xl", sm: "1xl", md: "1xl", lg: "2xl" }}
+              >
                 ART
                 <Text
                   as={"span"}
                   bgGradient="linear(to-r, red.400,pink.400)"
-                  bgClip="text">
+                  bgClip="text"
+                >
                   ficial.
                 </Text>{" "}
                 {/* with our user-friendly platform */}
@@ -76,7 +79,8 @@ export default function Navbar() {
                 _hover={{
                   bgGradient: "linear(to-r, red.900,pink.900)",
                   boxShadow: "xl",
-                }}>
+                }}
+              >
                 Check Artworks
               </Button>
             </Link>
@@ -95,7 +99,8 @@ export default function Navbar() {
                     href={"#"}
                     _hover={{
                       bg: "pink.300",
-                    }}>
+                    }}
+                  >
                     Create Artwork
                   </Button>
                 </Link>
@@ -112,7 +117,8 @@ export default function Navbar() {
                     rounded={"full"}
                     variant={"link"}
                     cursor={"pointer"}
-                    minW={0}>
+                    minW={0}
+                  >
                     <Avatar
                       size={"sm"}
                       src={"https://avatars.dicebear.com/api/male/username.svg"}
@@ -130,12 +136,15 @@ export default function Navbar() {
                     </Center>
                     <br />
                     <Center>
-                      <p>{user.name}</p>
+                      <p>{user.userName}</p>
                     </Center>
                     <br />
                     <MenuDivider />
-                    <MenuItem>View your profile</MenuItem>
+                    <MenuItem>
+                      <Link to="/profile">View your profile</Link>
+                    </MenuItem>
                     <MenuItem>Your Artworks</MenuItem>
+                    <MenuDivider />
                     <MenuItem onClick={handleClick}>Logout</MenuItem>
                   </MenuList>
                 </Menu>
@@ -156,7 +165,8 @@ export default function Navbar() {
                       href={"#"}
                       _hover={{
                         bg: "pink.300",
-                      }}>
+                      }}
+                    >
                       Signup
                     </Button>
                   </Link>

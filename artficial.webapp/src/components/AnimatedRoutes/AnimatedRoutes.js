@@ -22,6 +22,8 @@ import Step3 from "../Artwork/CreateArtwork/Step3/Step3";
 import { AnimatePresence } from "framer-motion";
 import Creator from "../Creator/Creator";
 import CreatorArts from "../Creator/CreatorArts";
+import Profile from "../Profile/Profile";
+import UpdateForm from "../Profile/UpdateForm";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -30,6 +32,8 @@ function AnimatedRoutes() {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/update" element={<UpdateForm />} />
         <Route path="/allartworks" element={<AllArtworks />} />
         <Route path="/allartworks/:id" element={<ArtworksDetail />} />
         <Route path="/creator/:id" element={<Creator />} />

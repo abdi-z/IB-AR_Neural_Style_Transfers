@@ -6,6 +6,7 @@ const {
   signupUser,
   getAllUsers,
   getSingleUser,
+  updateUser,
 } = require("../controllers/userController");
 
 //login
@@ -16,5 +17,7 @@ router.post("/signup", signupUser);
 router.get("/", getAllUsers);
 //get single users
 router.get("/:id", getSingleUser);
+//get single users
+router.patch("/:id", updateUser);
 
 module.exports = router;

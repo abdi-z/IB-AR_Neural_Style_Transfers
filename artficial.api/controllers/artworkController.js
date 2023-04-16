@@ -82,12 +82,7 @@ const updateArtwork = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id))
     res.status(404).json({ error: "Invalid id" });
 
-  const artwork = await Artwork.findByIdAndUpdate(
-    { _id: id },
-    {
-      ...req.body,
-    }
-  );
+  const artwork = await Artwork.findByIdAndUpdate({ _id: id }, { ...req.body });
   res.status(200).json(artwork);
   if (!artwork) return res.status(400).json({ error: "No recipe" });
 };
