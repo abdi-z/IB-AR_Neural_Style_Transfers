@@ -7,7 +7,6 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { Spinner } from "@chakra-ui/react";
 import { saveAs } from "file-saver";
-
 import { Button, Heading, Text } from "@chakra-ui/react";
 import {
   Box,
@@ -22,11 +21,13 @@ import { motion } from "framer-motion";
 
 const Step3 = () => {
   const { styleLink, uploadedUrl } = useLocation().state;
-  // console.log("The style link in coming is :", styleLink);
-  // console.log("The uploaded url in coming is :", uploadedUrl);
+  console.log("The style link in coming is :", styleLink);
+  console.log("The uploaded url in coming is :", uploadedUrl);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [generatedImageURL, setGeneratedImageURL] = React.useState();
+  const [generatedImageURL, setGeneratedImageURL] = React.useState(
+    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1673624544/hhtmogcvy1ptbyq9kgs7.png"
+  );
   const downloadImage = () => {
     saveAs(generatedImageURL, "ARTficial.png"); // Put your image url here.
   };
@@ -55,10 +56,13 @@ const Step3 = () => {
       bg={useColorModeValue("gray.50", "gray.800")}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.1 } }}>
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={2} >
+      exit={{ opacity: 0, transition: { duration: 0.1 } }}
+    >
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={2}>
         <Stack align={"center"}>
-          <Heading fontSize={"4xl"} align={"center"}>Generate the stylized image.</Heading>
+          <Heading fontSize={"4xl"} align={"center"}>
+            Generate the stylized image.
+          </Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
             Finally, finish off by{" "}
             <Link color={"blue.400"}> pressing the generate button.</Link> ✌️
@@ -69,7 +73,8 @@ const Step3 = () => {
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           px={0}
-          py={5}>
+          py={5}
+        >
           <Stack spacing={4}>
             <Center>
               <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
@@ -78,20 +83,34 @@ const Step3 = () => {
             </Center>
             <Box>
               {generatedImageURL ? (
-                <Center>
-                  <Button
-                    fontFamily={"heading"}
-                    w={"50%"}
-                    bgGradient="linear(to-r, red.900,pink.400)"
-                    color={"white"}
-                    _hover={{
-                      bgGradient: "linear(to-r, red.900,pink.900)",
-                      boxShadow: "xl",
-                    }}
-                    onClick={downloadImage}>
-                    Download!
-                  </Button>
-                </Center>
+                <>
+                  <Center>
+                    <Button
+                      fontFamily={"heading"}
+                      w={"50%"}
+                      bgGradient="linear(to-r, red.900,pink.400)"
+                      color={"white"}
+                      _hover={{
+                        bgGradient: "linear(to-r, red.900,pink.900)",
+                        boxShadow: "xl",
+                      }}
+                      onClick={downloadImage}
+                    >
+                      Download!
+                    </Button>
+                  </Center>
+                  <Link to="/createartwork/step5" state={{ generatedImageURL }}>
+                    <Button
+                      fontFamily={"heading"}
+                      w={"50%"}
+                      mt={5}
+                      bgGradient="linear(to-r, red.900,pink.400)"
+                      color={"white"}
+                    >
+                      Step 5
+                    </Button>
+                  </Link>
+                </>
               ) : (
                 <Center>
                   <Button
@@ -104,7 +123,8 @@ const Step3 = () => {
                       boxShadow: "xl",
                     }}
                     onClick={generateImage}
-                    disabled={loading}>
+                    disabled={loading}
+                  >
                     Generate!
                   </Button>
                 </Center>
@@ -135,7 +155,8 @@ const Step3 = () => {
                     bgGradient: "linear(to-r, red.400,pink.400)",
                     boxShadow: "xl",
                   }}
-                  disabled={loading}>
+                  disabled={loading}
+                >
                   Back
                 </Button>
               </Center>

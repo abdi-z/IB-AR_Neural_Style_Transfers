@@ -17,19 +17,25 @@ const getSingleGallery = async (req, res) => {
   if (!gallery) return res.status(400).json({ error: "No gallery found" });
 };
 
+//get single
+const getCreatorsGalleries = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id))
+    res.status(404).json({ error: "Invalid id" });
+  const gallery = await Gallery.find({ createdByID: id });
+  res.status(200).json(gallery);
+  if (!gallery) return res.status(400).json({ error: "No gallery found" });
+};
+
 //post
 const createGallery = async (req, res) => {
-  const {
-    galleryName,
-    createdByID,
-    artworkIDs
-  } = req.body;
+  const { galleryName, createdByID, artworkIDs } = req.body;
 
   try {
     const gallery = await Gallery.create({
       galleryName,
       createdByID,
-      artworkIDs
+      artworkIDs,
     });
     res.status(200).json(gallery);
   } catch (err) {
@@ -72,4 +78,5 @@ module.exports = {
   createGallery,
   deleteSingleGallery,
   updateGallery,
+  getCreatorsGalleries,
 };

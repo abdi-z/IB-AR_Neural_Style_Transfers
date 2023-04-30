@@ -51,22 +51,26 @@ export default function Preface() {
       position={"relative"}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.1 } }}>
+      exit={{ opacity: 0, transition: { duration: 0.1 } }}
+    >
       <Container
         as={SimpleGrid}
         maxW={"6xl"}
         columns={{ base: 1, md: 2 }}
         spacing={{ base: 10, lg: 32 }}
-        py={{ base: 2, sm: 20, lg: 20 }}>
+        py={{ base: 2, sm: 20, lg: 20 }}
+      >
         <Stack spacing={{ base: 10, md: 10 }}>
           <Heading
             lineHeight={1.1}
-            fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}>
+            fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
+          >
             Create stunning{" "}
             <Text
               as={"span"}
               bgGradient="linear(to-r, red.400,pink.400)"
-              bgClip="text">
+              bgClip="text"
+            >
               artworks
             </Text>{" "}
             with our user-friendly platform
@@ -103,17 +107,20 @@ export default function Preface() {
           rounded={"xl"}
           p={{ base: 4, sm: 6, md: 8 }}
           spacing={{ base: 8 }}
-          maxW={{ lg: "lg" }}>
+          maxW={{ lg: "lg" }}
+        >
           <Stack spacing={4}>
             <Heading
               color={"gray.300"}
               lineHeight={1.1}
-              fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}>
+              fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
+            >
               Let the world become your canvas
               <Text
                 as={"span"}
                 bgGradient="linear(to-r, red.400,pink.400)"
-                bgClip="text">
+                bgClip="text"
+              >
                 !
               </Text>
             </Heading>
@@ -134,7 +141,8 @@ export default function Preface() {
                 _hover={{
                   bgGradient: "linear(to-r, red.400,pink.400)",
                   boxShadow: "xl",
-                }}>
+                }}
+              >
                 Create an Artwork
               </Button>
             </Link>
@@ -160,7 +168,8 @@ export const Blur = (props) => {
       viewBox="0 0 528 560"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}>
+      {...props}
+    >
       <circle cx="71" cy="61" r="111" fill="#F56565" />
       <circle cx="244" cy="106" r="139" fill="#ED64A6" />
       <circle cy="291" r="139" fill="#ED64A6" />

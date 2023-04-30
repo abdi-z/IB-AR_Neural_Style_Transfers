@@ -6,6 +6,7 @@ import axios from "axios";
 import { Spinner } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { Button, Heading, Text } from "@chakra-ui/react";
 import {
@@ -17,14 +18,17 @@ import {
 } from "@chakra-ui/react";
 import { Checkbox, useColorModeValue } from "@chakra-ui/react";
 
-const Step1 = () => {
+const Step4 = () => {
   const [imageSelected, setImageSelected] = React.useState("");
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
-  const [uploadedUrl, setUploadedUrl] = useState("");
+  const [styleLink, setStyleLink] = useState("www.styleimage.com");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [isImageSelected, setIsImageSelected] = useState(false);
+
+  const { uploadedUrl } = useLocation().state;
+  console.log("uploaded URL--4--> " + uploadedUrl);
 
   const uploadImage = () => {
     setLoading(true);
@@ -36,7 +40,7 @@ const Step1 = () => {
       .then((response) => {
         // console.log(response);
         setLoading(false);
-        setUploadedUrl(response.data.secure_url);
+        setStyleLink(response.data.secure_url);
         setIsImageSelected(true);
       });
   };
@@ -53,7 +57,7 @@ const Step1 = () => {
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
-          <Heading fontSize={"4xl"}>Provide a content image.</Heading>
+          <Heading fontSize={"4xl"}>Provide a style refernce.</Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
             Upload your image <Link color={"blue.400"}> to get started</Link> ✌️
           </Text>
@@ -89,16 +93,16 @@ const Step1 = () => {
                   <Image
                     style={{ width: 200 }}
                     cloudName="dlx4hhpw2"
-                    publicId={uploadedUrl}
+                    publicId={styleLink}
                   />
                 )}
               </Center>
               <Box as={"form"} mt={10}>
                 <Link
-                  to="/createartwork/select"
+                  to="/createartwork/step3"
                   state={{
-                    uploadedUrl:
-                      "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1673624544/hhtmogcvy1ptbyq9kgs7.png",
+                    styleLink,
+                    uploadedUrl,
                   }}
                 >
                   <Button
@@ -125,4 +129,4 @@ const Step1 = () => {
   );
 };
 
-export default Step1;
+export default Step4;

@@ -19,11 +19,15 @@ import ArtworksDetail from "../Artwork/Details/ArtworksDetail";
 import Step1 from "../Artwork/CreateArtwork/Step1/Step1";
 import Step2 from "../Artwork/CreateArtwork/Step2/Step2";
 import Step3 from "../Artwork/CreateArtwork/Step3/Step3";
+import Step4 from "../Artwork/CreateArtwork/Step4/Step4";
+import Step5 from "../Artwork/CreateArtwork/Step5/Step5";
 import { AnimatePresence } from "framer-motion";
 import Creator from "../Creator/Creator";
 import CreatorArts from "../Creator/CreatorArts";
 import Profile from "../Profile/Profile";
 import UpdateForm from "../Profile/UpdateForm";
+import Select from "../Artwork/CreateArtwork/Select/Select";
+import Galleries from "../Galleries/Galleries";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -38,14 +42,18 @@ function AnimatedRoutes() {
         <Route path="/allartworks/:id" element={<ArtworksDetail />} />
         <Route path="/creator/:id" element={<Creator />} />
         <Route path="/creator/:id/allartworks" element={<CreatorArts />} />
+        <Route path="/creator/:id/galleries" element={<Galleries />} />
 
         <Route
           path="/createartwork"
           element={user ? <Preface /> : <Navigate to="/login" />}
         />
         <Route path="/createartwork/step1" element={<Step1 />} />
+        <Route path="/createartwork/select" element={<Select />} />
         <Route path="/createartwork/step2" element={<Step2 />} />
         <Route path="/createartwork/step3" element={<Step3 />} />
+        <Route path="/createartwork/step4" element={<Step4 />} />
+        <Route path="/createartwork/step5" element={<Step5 />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route
           path="/signup"

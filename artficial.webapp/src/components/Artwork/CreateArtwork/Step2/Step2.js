@@ -19,6 +19,8 @@ import {
 
 const Step2 = () => {
   const { uploadedUrl } = useLocation().state;
+  console.log("step2:" + uploadedUrl);
+
   const [imageSelected, setImageSelected] = React.useState("");
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
@@ -43,7 +45,8 @@ const Step2 = () => {
       bg={useColorModeValue("gray.50", "gray.800")}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.1 } }}>
+      exit={{ opacity: 0, transition: { duration: 0.1 } }}
+    >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={2}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Select a style to apply.</Heading>
@@ -56,7 +59,8 @@ const Step2 = () => {
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           px={8}
-          py={5}>
+          py={5}
+        >
           <Stack spacing={4}>
             <Center>
               <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
@@ -70,7 +74,8 @@ const Step2 = () => {
                   styleLink:
                     "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg",
                   uploadedUrl,
-                }}>
+                }}
+              >
                 <Image
                   boxSize="150px"
                   objectFit="cover"
@@ -84,7 +89,8 @@ const Step2 = () => {
                   styleLink:
                     "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg",
                   uploadedUrl,
-                }}>
+                }}
+              >
                 <Image
                   boxSize="150px"
                   objectFit="cover"
@@ -98,7 +104,8 @@ const Step2 = () => {
                   styleLink:
                     "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg",
                   uploadedUrl,
-                }}>
+                }}
+              >
                 <Image
                   boxSize="150px"
                   objectFit="cover"
@@ -112,7 +119,8 @@ const Step2 = () => {
                   styleLink:
                     "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg",
                   uploadedUrl,
-                }}>
+                }}
+              >
                 <Image
                   boxSize="150px"
                   objectFit="cover"
@@ -133,7 +141,8 @@ const Step2 = () => {
                   _hover={{
                     bgGradient: "linear(to-r, red.400,pink.400)",
                     boxShadow: "xl",
-                  }}>
+                  }}
+                >
                   Back
                 </Button>
               </Link>

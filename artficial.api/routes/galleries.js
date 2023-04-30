@@ -6,6 +6,7 @@ const {
   createGallery,
   deleteSingleGallery,
   updateGallery,
+  getCreatorsGalleries,
 } = require("../controllers/galleryController");
 
 //GET all recipes
@@ -13,6 +14,9 @@ router.get("/", getGalleries);
 
 //GET single recipe
 router.get("/:id", getSingleGallery);
+
+//GET single recipe by creator
+router.get("/creator/:id", getCreatorsGalleries);
 
 //POST single recipe
 router.post("/", createGallery);
