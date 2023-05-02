@@ -28,6 +28,7 @@ import Profile from "../Profile/Profile";
 import UpdateForm from "../Profile/UpdateForm";
 import Select from "../Artwork/CreateArtwork/Select/Select";
 import Galleries from "../Galleries/Galleries";
+import GalleryDetails from "../GalleryDetails/GalleryDetails";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -43,6 +44,10 @@ function AnimatedRoutes() {
         <Route path="/creator/:id" element={<Creator />} />
         <Route path="/creator/:id/allartworks" element={<CreatorArts />} />
         <Route path="/creator/:id/galleries" element={<Galleries />} />
+        <Route
+          path="/creator/:id/galleries/:gid"
+          element={<GalleryDetails />}
+        />
 
         <Route
           path="/createartwork"

@@ -27,6 +27,31 @@ const getCreatorsGalleries = async (req, res) => {
   if (!gallery) return res.status(400).json({ error: "No gallery found" });
 };
 
+//add Artwork to Gallery
+const addArtworktoGallery = async (req, res) => {
+  try {
+    const { galleryId } = req.params;
+    const { artworkId } = req.body;
+
+    // Find the gallery by id
+    const gallery = await Gallery.findById(galleryId);
+    if (!gallery) {
+      return res.status(404).json({ error: "Gallery not found" });
+    }
+
+    // Add artwork id to gallery's artworkIDs array
+    gallery.artworkIDs.push(artworkId);
+
+    // Update the gallery in the database
+    const updatedGallery = await gallery.save();
+
+    res.json(updatedGallery);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 //post
 const createGallery = async (req, res) => {
   const { galleryName, createdByID, artworkIDs } = req.body;
@@ -75,6 +100,7 @@ const updateGallery = async (req, res) => {
 module.exports = {
   getGalleries,
   getSingleGallery,
+  addArtworktoGallery,
   createGallery,
   deleteSingleGallery,
   updateGallery,

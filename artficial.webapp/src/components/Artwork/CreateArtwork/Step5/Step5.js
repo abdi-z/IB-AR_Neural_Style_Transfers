@@ -81,8 +81,7 @@ const Step4 = () => {
             Generate the stylized image.
           </Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
-            Finally, finish off by{" "}
-            <Link color={"blue.400"}> pressing the generate button.</Link> ✌️
+            Finally, finish off by pressing the generate button. ✌️
           </Text>
         </Stack>
         <VStack spacing="4">

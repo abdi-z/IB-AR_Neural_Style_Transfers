@@ -3,6 +3,7 @@ const router = express.Router();
 const {
   getGalleries,
   getSingleGallery,
+  addArtworktoGallery,
   createGallery,
   deleteSingleGallery,
   updateGallery,
@@ -11,6 +12,9 @@ const {
 
 //GET all recipes
 router.get("/", getGalleries);
+
+//Add
+router.post("/:galleryId/addartwork", addArtworktoGallery);
 
 //GET single recipe
 router.get("/:id", getSingleGallery);

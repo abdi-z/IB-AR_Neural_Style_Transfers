@@ -151,7 +151,7 @@ const Profile = () => {
                     </List>
                   </Box>
                 </Stack>
-                <Link to={`/user/${user._id}/allartworks`}>
+                <Link to={`/creator/${user._id}/allartworks`}>
                   <Button
                     rounded={"xl"}
                     w={"full"}
@@ -167,6 +167,24 @@ const Profile = () => {
                     }}
                   >
                     Browse all Artworks
+                  </Button>
+                </Link>
+                <Link to={`/creator/${user._id}/galleries`}>
+                  <Button
+                    rounded={"xl"}
+                    w={"full"}
+                    mt={0}
+                    size={"lg"}
+                    py={"7"}
+                    bg={"linear-gradient(to right, #7928CA, #FF0080)"}
+                    color={"white"}
+                    textTransform={"uppercase"}
+                    _hover={{
+                      transform: "translateY(2px)",
+                      boxShadow: "lg",
+                    }}
+                  >
+                    Browse all galleries
                   </Button>
                 </Link>
               </Stack>

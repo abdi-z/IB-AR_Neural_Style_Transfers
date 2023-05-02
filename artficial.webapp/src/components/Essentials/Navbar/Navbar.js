@@ -143,6 +143,11 @@ export default function Navbar() {
                     <MenuItem>
                       <Link to="/profile">View your profile</Link>
                     </MenuItem>
+                    <MenuItem>
+                      <Link to={`/creator/${user._id}/galleries/`}>
+                        View your galleries
+                      </Link>
+                    </MenuItem>
                     <MenuItem>Your Artworks</MenuItem>
                     <MenuDivider />
                     <MenuItem onClick={handleClick}>Logout</MenuItem>
