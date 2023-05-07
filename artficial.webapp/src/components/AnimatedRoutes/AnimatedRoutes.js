@@ -9,6 +9,7 @@ import {
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { Error } from "../Essentials/Error/Error";
 import AllArtworks from "../Artwork/AllArtworks/AllArtworks";
+import TrendingArtworks from "../Artwork/TrendingArtworks/TrendingArtworks";
 import Preface from "../Artwork/CreateArtwork/Preface/Preface";
 import Navbar from "../Essentials/Navbar/Navbar";
 import Footer from "../Essentials/Footer/Footer";
@@ -40,7 +41,11 @@ function AnimatedRoutes() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/update" element={<UpdateForm />} />
         <Route path="/allartworks" element={<AllArtworks />} />
-        <Route path="/allartworks/:id" element={<ArtworksDetail />} />
+        <Route path="/trending" element={<TrendingArtworks />} />
+        <Route
+          path="/allartworks/:id"
+          element={<ArtworksDetail user={user} />}
+        />
         <Route path="/creator/:id" element={<Creator />} />
         <Route path="/creator/:id/allartworks" element={<CreatorArts />} />
         <Route path="/creator/:id/galleries" element={<Galleries />} />

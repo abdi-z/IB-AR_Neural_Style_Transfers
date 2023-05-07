@@ -35,6 +35,34 @@ const getSingleArtwork = async (req, res) => {
   if (!artwork) return res.status(400).json({ error: "No artwork found" });
 };
 
+// like Single Artwork
+const likeSingleArtwork = async (req, res) => {
+  console.log(req.params.id);
+  console.log(req.body.userId);
+  try {
+    const artwork = await Artwork.findById(req.params.id);
+    if (!artwork) {
+      return res.status(404).json({ message: "Artwork not found" });
+    }
+    const { userId } = req.body;
+    const isLiked = artwork.likes.get(userId) || false;
+
+    console.log(userId);
+    console.log(isLiked);
+
+    if (isLiked) {
+      artwork.likes.delete(userId);
+    } else {
+      artwork.likes.set(userId, true);
+    }
+    await artwork.save();
+
+    res.json({ message: "Post liked/unliked" });
+  } catch (error) {
+    console.log("can't like/unlike");
+    res.status(500).json({ message: "Server error" });
+  }
+};
 //post
 const createArtwork = async (req, res) => {
   const {
@@ -91,6 +119,7 @@ module.exports = {
   getArtworks,
   getArtworksByCreator,
   getSingleArtwork,
+  likeSingleArtwork,
   createArtwork,
   deleteSingleArtwork,
   updateArtwork,

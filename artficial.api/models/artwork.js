@@ -1,33 +1,40 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
-const artworkSchema = new Schema({
+const artworkSchema = new Schema(
+  {
     title: {
-        type:String,
-        required:true
+      type: String,
+      required: true,
     },
-    description:{
-        type:String,
-        required:true
+    description: {
+      type: String,
+      required: true,
     },
-    imgURL:{
-        type:String
+    imgURL: {
+      type: String,
     },
-    createdByID:{
-        type:String,
-        required:true
+    createdByID: {
+      type: String,
+      required: true,
     },
-    categoryID:{
-        type:Number,
-        required:true
+    categoryID: {
+      type: Number,
+      required: true,
     },
-    nftLink:{
-        type:String,
+    nftLink: {
+      type: String,
     },
-    presetID:{
-        type:String,
-    }
-},{ timestamps:true })
+    presetID: {
+      type: String,
+    },
+    likes: {
+      type: Map,
+      of: Boolean,
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('Artwork', artworkSchema)
+module.exports = mongoose.model("Artwork", artworkSchema);

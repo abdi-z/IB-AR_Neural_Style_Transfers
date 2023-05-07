@@ -4,6 +4,7 @@ const {
   getArtworks,
   getArtworksByCreator,
   getSingleArtwork,
+  likeSingleArtwork,
   createArtwork,
   deleteSingleArtwork,
   updateArtwork,
@@ -17,6 +18,9 @@ router.get("/creator/:id", getArtworksByCreator);
 
 //GET single artworks
 router.get("/:id", getSingleArtwork);
+
+//Like single artwork
+router.patch("/:id/like", likeSingleArtwork);
 
 //POST single artworks
 router.post("/", createArtwork);
