@@ -22,9 +22,10 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useAuthContext } from "../../../hooks/useAuthContext";
+import Share from "./Share";
 
-const ArtworksDetail = ({ user }) => {
-  // const { user } = useAuthContext();
+const ArtworksDetail = () => {
+  const { user } = useAuthContext();
   const { id } = useParams();
   const [artwork, setArtwork] = useState(null);
   const [creator, setCreator] = useState(null);
@@ -46,7 +47,7 @@ const ArtworksDetail = ({ user }) => {
         const data = await response.json();
         const { likes } = data;
         const { _id: userId } = user;
-        console.log(userId);
+        console.log(Object.keys(likes).length);
         setIsLiked(likes?.[userId] || false);
       } catch (error) {
         console.error(error);
@@ -163,6 +164,7 @@ const ArtworksDetail = ({ user }) => {
                   />
                 </Box>
               </Center>
+              <Share url={window.location.href} />
               <Flex justifyContent="space-between" my={4}>
                 <Text>Category: {artwork.categoryID}</Text>
                 <Text>Created by: {creator}</Text>

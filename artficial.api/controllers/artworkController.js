@@ -8,6 +8,30 @@ const getArtworks = async (req, res) => {
   res.status(200).json(artworks);
 };
 
+//get most liked artwork
+const getMostLikedArtwork = async (req, res) => {
+  try {
+    // Get all the artworks
+    const artworks = await Artwork.find({});
+
+    // Calculate the count of liked artworks
+    let maxLikes = 0;
+    let maxLikedArtwork = null;
+
+    artworks.forEach((artwork) => {
+      console.log(Object.keys(artwork.likes).length);
+      if (likesCount > maxLikes) {
+        maxLikes = likesCount;
+      }
+    }); //////////////////////////////////////
+    console.log(maxLikes);
+    res.status(200).json({ maxLikes });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
 //get all by creator
 const getArtworksByCreator = async (req, res) => {
   const createdByID = req.params.id;
@@ -117,6 +141,7 @@ const updateArtwork = async (req, res) => {
 
 module.exports = {
   getArtworks,
+  getMostLikedArtwork,
   getArtworksByCreator,
   getSingleArtwork,
   likeSingleArtwork,

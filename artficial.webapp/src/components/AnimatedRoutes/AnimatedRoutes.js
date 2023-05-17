@@ -42,10 +42,7 @@ function AnimatedRoutes() {
         <Route path="/profile/update" element={<UpdateForm />} />
         <Route path="/allartworks" element={<AllArtworks />} />
         <Route path="/trending" element={<TrendingArtworks />} />
-        <Route
-          path="/allartworks/:id"
-          element={<ArtworksDetail user={user} />}
-        />
+        <Route path="/allartworks/:id" element={<ArtworksDetail />} />
         <Route path="/creator/:id" element={<Creator />} />
         <Route path="/creator/:id/allartworks" element={<CreatorArts />} />
         <Route path="/creator/:id/galleries" element={<Galleries />} />

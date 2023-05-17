@@ -10,6 +10,7 @@ const galleries = require("./routes/galleries");
 const promotedArtworks = require("./routes/promotedArtworks");
 const reportArtworks = require("./routes/reportArtworks");
 const themePresets = require("./routes/themePresets");
+const adminRoutes = require("./routes/admins");
 const index = require("./routes/index");
 
 const app = express();
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 app.use("/", index);
 app.use("/api/v1/artworks", artworkRoutes);
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/artistPresets", artistPresets);
 app.use("/api/v1/categories", categories);
 app.use("/api/v1/galleries", galleries);

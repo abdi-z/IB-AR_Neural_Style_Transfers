@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useRecipesContext } from "../hooks/useRecipesContext";
+import { useArtworksContext } from "../hooks/useArtworksContext";
 import "../index.css";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const RecipeForm = () => {
-  const { dispatch } = useRecipesContext();
+  const { dispatch } = useArtworksContext();
   const { user } = useAuthContext();
 
   const [title, setTitle] = useState("");
@@ -22,7 +22,7 @@ const RecipeForm = () => {
 
     const recipe = { title, ingredients, time };
 
-    const response = await fetch("/api/recipes", {
+    const response = await fetch("http://localhost:4000/api/recipes", {
       method: "POST",
       body: JSON.stringify(recipe),
       headers: {
@@ -41,7 +41,7 @@ const RecipeForm = () => {
       setIngredients("");
       setTime("");
       console.log("new recipe added:", json);
-      dispatch({ type: "CREATE_RECIPE", payload: json });
+      dispatch({ type: "CREATE_ARTWORK", payload: json });
     }
   };
 

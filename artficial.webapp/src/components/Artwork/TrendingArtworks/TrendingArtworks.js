@@ -6,28 +6,45 @@ import { Spinner } from "@chakra-ui/react";
 import { Flex, Spacer, Heading } from "@chakra-ui/react";
 import SingleArtwork from "../SingleArtwork/SingleArtwork";
 import { motion } from "framer-motion";
+import { useArtworksContext } from "../../../hooks/useArtworksContext";
 
 const AllArtworks = () => {
-  const [artworks, setArtworks] = useState(null);
+  const { artworks } = useArtworksContext();
+  //   const [artworks, setArtworks] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    const fetchArtworks = async () => {
-      setLoading(true);
-      const response = await fetch("http://localhost:4000/api/v1/artworks");
-      const json = await response.json();
+  // top 3 liked
+  //   const likedArtworks = artworks
+  //   .filter((artwork) => {
+  //     return Object.keys(artwork.likes).length > 0;
+  //   })
+  //   .sort((a, b) => {
+  //     return Object.keys(b.likes).length - Object.keys(a.likes).length;
+  //   })
+  //   .slice(0, 3);
 
-      if (response.ok) {
-        setArtworks(json);
-      } else {
-        setError(true);
-      }
-      setLoading(false);
-    };
+  //having count of likes > 0
+  const likedArtworks = artworks.filter((artwork) => {
+    return Object.keys(artwork.likes).length > 0;
+  });
 
-    fetchArtworks();
-  }, []);
+  //   useEffect(() => {
+  //     const fetchArtworks = async () => {
+  //       setLoading(true);
+  //       const response = await fetch("http://localhost:4000/api/v1/artworks");
+  //       const json = await response.json();
+
+  //       if (response.ok) {
+  //         setArtworks(json);
+  //       } else {
+  //         setError(true);
+  //       }
+  //       setLoading(false);
+  //     };
+
+  //     fetchArtworks();
+  //   }, []);
 
   return (
     <motion.Box
@@ -51,8 +68,8 @@ const AllArtworks = () => {
           </Center>
         )}
         {error && <Center>Something went wrong</Center>}
-        {artworks &&
-          artworks.map((Artwork) => (
+        {likedArtworks &&
+          likedArtworks.map((Artwork) => (
             <SingleArtwork
               key={Artwork._id}
               artwork={Artwork}

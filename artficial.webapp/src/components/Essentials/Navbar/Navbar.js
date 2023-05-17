@@ -84,6 +84,20 @@ export default function Navbar() {
                 Check Artworks
               </Button>
             </Link>
+            <Link to="/trending">
+              <Button
+                fontFamily={"heading"}
+                w={"full"}
+                bgGradient="linear(to-r, red.900,pink.400)"
+                color={"white"}
+                _hover={{
+                  bgGradient: "linear(to-r, red.900,pink.900)",
+                  boxShadow: "xl",
+                }}
+              >
+                Trending Artworks
+              </Button>
+            </Link>
           </HStack>
 
           <Flex alignItems={"center"}>

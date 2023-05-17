@@ -27,7 +27,9 @@ import { Radio, RadioGroup } from "@chakra-ui/react";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [imageSelected, setImageSelected] = React.useState("");
-  const [uploadedUrl, setUploadedUrl] = useState("");
+  const [uploadedUrl, setUploadedUrl] = useState(
+    "https://avatars.dicebear.com/api/male/username.svg"
+  );
   const [isImageSelected, setIsImageSelected] = useState(false);
   const [loading, setLoading] = useState(false);
   const [userName, setUserName] = useState("");
@@ -44,7 +46,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Signup form: ", email);
-    await signup(email, password, userName, phoneNumber, gender, uploadedUrl);
+    await signup(email, password, userName, phoneNumber, gender, avatarImgURL);
     navigate("/allartworks");
   };
 
@@ -71,7 +73,8 @@ const Signup = () => {
       bg={useColorModeValue("gray.50", "gray.800")}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.1 } }}>
+      exit={{ opacity: 0, transition: { duration: 0.1 } }}
+    >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"} textAlign={"center"}>
@@ -85,7 +88,8 @@ const Signup = () => {
           rounded={"lg"}
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
-          p={8}>
+          p={8}
+        >
           <Stack spacing={4}>
             <HStack>
               <Box>
@@ -126,7 +130,8 @@ const Signup = () => {
                     variant={"ghost"}
                     onClick={() =>
                       setShowPassword((showPassword) => !showPassword)
-                    }>
+                    }
+                  >
                     {showPassword ? <ViewIcon /> : <ViewOffIcon />}
                   </Button>
                 </InputRightElement>
@@ -175,7 +180,8 @@ const Signup = () => {
                 _hover={{
                   bg: "blue.500",
                 }}
-                onClick={handleSubmit}>
+                onClick={handleSubmit}
+              >
                 Sign up
               </Button>
             </Stack>
