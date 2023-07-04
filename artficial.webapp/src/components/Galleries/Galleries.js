@@ -16,6 +16,7 @@ import {
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import SingleArtwork from "../Artwork/SingleArtwork/SingleArtwork";
 import { motion } from "framer-motion";
 import { useAuthContext } from "../../hooks/useAuthContext";
@@ -79,6 +80,27 @@ const Galleries = () => {
     }
   };
 
+  const handleDelete = async (galleryId) => {
+    try {
+      const response = await fetch(
+        `http://localhost:4000/api/v1/galleries/${galleryId}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.ok) {
+        // Update the galleries state after successful deletion
+        setGalleries((prevGalleries) =>
+          prevGalleries.filter((gallery) => gallery._id !== galleryId)
+        );
+      } else {
+        setError(true);
+      }
+    } catch (error) {
+      setError(true);
+    }
+  };
+
   return (
     <motion.Box
       p={4}
@@ -120,23 +142,30 @@ const Galleries = () => {
           )}
           {error && <Center>Something went wrong</Center>}
           {galleries && galleries.length > 0 ? (
-            galleries.map((Gallery) => (
-              <Link
-                to={`/creator/${id}/galleries/${Gallery._id}`}
-                key={Gallery._id}
-              >
-                <Flex
-                  background="gray.500"
-                  borderRadius="md"
-                  boxShadow="lg"
-                  justify="space-between"
-                  p={4}
-                  w="100%"
-                  _hover={{ background: "gray.400" }}
-                >
-                  <Text fontSize="xl">{Gallery.galleryName}</Text>
-                </Flex>
-              </Link>
+            galleries.map((gallery) => (
+              <Box key={gallery._id}>
+                  <Flex
+                    background="gray.500"
+                    borderRadius="md"
+                    boxShadow="lg"
+                    justify="space-between"
+                    p={4}
+                    w="100%"
+                    _hover={{ background: "gray.400" }}
+                  >
+                <Link to={`/creator/${id}/galleries/${gallery._id}`}>
+                    <Text fontSize="xl">{gallery.galleryName}</Text>
+                </Link>
+
+                <RiDeleteBin6Line
+                  size={24}
+                  color={"red"}
+                  cursor="pointer"
+                  onClick={() => handleDelete(gallery._id)}
+                  
+                  />
+                  </Flex>
+              </Box>
             ))
           ) : (
             <Box>

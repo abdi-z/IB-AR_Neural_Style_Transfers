@@ -28,19 +28,17 @@ const ArtworkDetails = ({ artwork }) => {
     if (!user) {
       return;
     }
-    // console.log(artwork.title);
+    console.log(artwork.title);
     setIsModalOpen(false);
-    // const response = await fetch("/api/artwork/" + artwork._id, {
-    //   method: "DELETE",
-    //   headers: {
-    //     Authorization: `Bearer ${user.token}`,
-    //   },
-    // });
-    // const json = await response.json();
 
-    // if (response.ok) {
-    //   dispatch({ type: "DELETE_ARTWORK", payload: json });
-    // }
+    const response = await fetch("http://localhost:4000/api/v1/artworks/" + artwork._id, {
+      method: "DELETE",
+    });
+    const json = await response.json();
+
+    if (response.ok) {
+      dispatch({ type: "DELETE_ARTWORK", payload: json });
+    }
   };
 
   return (
@@ -73,9 +71,12 @@ const ArtworkDetails = ({ artwork }) => {
             <Button variant="ghost" onClick={() => setIsModalOpen(false)}>
               Cancel
             </Button>
-            {/* <Button colorScheme="red" ml={3} onClick={handleDelete}>
-              Delete
-            </Button> */}
+            <Button colorScheme="blue" onClick={() => window.open(`http://localhost:3000/allartworks/${artwork._id}`)}>
+              View
+            </Button>
+            <Button colorScheme="red" ml={3} onClick={handleDelete}>
+              Remove
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

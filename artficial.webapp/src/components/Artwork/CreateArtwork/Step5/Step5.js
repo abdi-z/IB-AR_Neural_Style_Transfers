@@ -35,12 +35,13 @@ const Step4 = () => {
   console.log("--step 5--> " + generatedImageURL);
   console.log("--step 5--> " + user._id);
 
+  const navigate = useNavigate()
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [categoryID, setCategoryID] = useState(0);
   const [nftLink, setNftLink] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = {
       title,
@@ -49,9 +50,28 @@ const Step4 = () => {
       categoryID,
       nftLink,
       createdByID: user._id,
+      likes:{}
+
     };
     console.log(formData);
-    // Here you can make your API call to submit the form data
+    //API call
+    try {
+      const response = await fetch('http://localhost:4000/api/v1/artworks/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      console.log('API response:', data);
+      navigate('/allartworks');
+      // Additional logic or actions after API call
+    } catch (error) {
+      console.error('API error:', error);
+      // Handle any errors
+    }
+
   };
 
   const [loading, setLoading] = useState(false);

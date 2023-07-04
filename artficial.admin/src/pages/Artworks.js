@@ -42,8 +42,8 @@ const Artworks = () => {
           <Text fontSize="xl" fontWeight="bold">
             {count} Artists Found
           </Text>
-          <Text fontSize="md" color="gray.500">
-            Click to Refresh
+          <Text fontSize="md" color="gray.400">
+            Actions
           </Text>
         </Box>
 

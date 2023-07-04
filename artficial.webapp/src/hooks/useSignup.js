@@ -28,7 +28,7 @@ export const useSignup = () => {
           userName,
           phoneNumber,
           gender,
-          avatarImgURL,
+          avatarImgURL
         }),
       }
     );
@@ -37,7 +37,7 @@ export const useSignup = () => {
     if (!response.ok) {
       setIsLoading(false);
       setError(json.error);
-      console.log("!response.ok");
+      console.log(error);
     }
     if (response.ok) {
       console.log("response.ok");

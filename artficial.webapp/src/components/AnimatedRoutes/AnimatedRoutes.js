@@ -28,8 +28,12 @@ import CreatorArts from "../Creator/CreatorArts";
 import Profile from "../Profile/Profile";
 import UpdateForm from "../Profile/UpdateForm";
 import Select from "../Artwork/CreateArtwork/Select/Select";
+import Select1 from "../Artwork/CreateArtwork/Select1/Select1";
 import Galleries from "../Galleries/Galleries";
 import GalleryDetails from "../GalleryDetails/GalleryDetails";
+import Dalle from "../Artwork/CreateArtwork/DallE/Dalle";
+import H1 from "../Essentials/Home/H1";
+import H2 from "../Essentials/Home/H2";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -56,6 +60,8 @@ function AnimatedRoutes() {
           element={user ? <Preface /> : <Navigate to="/login" />}
         />
         <Route path="/createartwork/step1" element={<Step1 />} />
+        <Route path="/createartwork/dalle" element={<Dalle />} />
+        <Route path="/createartwork/select1" element={<Select1 />} />
         <Route path="/createartwork/select" element={<Select />} />
         <Route path="/createartwork/step2" element={<Step2 />} />
         <Route path="/createartwork/step3" element={<Step3 />} />

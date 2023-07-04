@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLogout } from "../../../hooks/useLogout";
 import { useAuthContext } from "../../../hooks/useAuthContext";
-import { ReactNode } from "react";
 import { HStack, VStack, Stack } from "@chakra-ui/react";
 import {
   Box,
@@ -20,6 +19,8 @@ import {
   Center,
   Heading,
 } from "@chakra-ui/react";
+import { FiTrendingUp } from "react-icons/fi";
+import { BsCheckAll } from "react-icons/bs";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import logo from "./ARTficial.png";
 import { useNavigate } from "react-router-dom";
@@ -80,24 +81,26 @@ export default function Navbar() {
                   bgGradient: "linear(to-r, red.900,pink.900)",
                   boxShadow: "xl",
                 }}
+                rightIcon={<BsCheckAll />}
               >
                 Check Artworks
               </Button>
             </Link>
             <Link to="/trending">
-              <Button
-                fontFamily={"heading"}
-                w={"full"}
-                bgGradient="linear(to-r, red.900,pink.400)"
-                color={"white"}
-                _hover={{
-                  bgGradient: "linear(to-r, red.900,pink.900)",
-                  boxShadow: "xl",
-                }}
-              >
-                Trending Artworks
-              </Button>
-            </Link>
+  <Button
+    fontFamily="heading"
+    w="full"
+    bgGradient="linear(to-r, red.900, pink.400)"
+    color="white"
+    _hover={{
+      bgGradient: "linear(to-r, red.900, pink.900)",
+      boxShadow: "xl",
+    }}
+    rightIcon={<FiTrendingUp />}
+  >
+    Trending Artworks
+  </Button>
+</Link>
           </HStack>
 
           <Flex alignItems={"center"}>

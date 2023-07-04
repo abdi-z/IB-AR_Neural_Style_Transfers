@@ -37,6 +37,10 @@ const getArtworksByCreator = async (req, res) => {
   const createdByID = req.params.id;
   const artworks = await Artwork.find({ createdByID }).sort({ createdAt: -1 });
 
+  if (artworks.length === 0) {
+    return res.status(200).json(artworks);
+  }
+
   const user = await User.findById(artworks[0].createdByID);
   const userName = user.userName;
   res.header("Access-Control-Expose-Headers", "creator");
@@ -97,6 +101,7 @@ const createArtwork = async (req, res) => {
     categoryID,
     nftLink,
     presetID,
+    likes
   } = req.body;
 
   try {
@@ -108,6 +113,7 @@ const createArtwork = async (req, res) => {
       categoryID,
       nftLink,
       presetID,
+      likes
     });
     res.status(200).json(artwork);
   } catch (err) {
@@ -136,7 +142,7 @@ const updateArtwork = async (req, res) => {
 
   const artwork = await Artwork.findByIdAndUpdate({ _id: id }, { ...req.body });
   res.status(200).json(artwork);
-  if (!artwork) return res.status(400).json({ error: "No recipe" });
+  if (!artwork) return res.status(400).json({ error: "No artwork" });
 };
 
 module.exports = {

@@ -4,7 +4,7 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 #importing model pre reqs
 import tensorflow_hub as hub
-import tensorflow as tf
+#import tensorflow as tf
 from matplotlib import pyplot as plt
 import numpy as np
 import cv2

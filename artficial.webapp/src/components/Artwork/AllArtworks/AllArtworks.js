@@ -7,6 +7,7 @@ import { Spinner } from "@chakra-ui/react";
 import { Flex, Spacer, Heading } from "@chakra-ui/react";
 import SingleArtwork from "../SingleArtwork/SingleArtwork";
 import { motion } from "framer-motion";
+import Navbar2 from "../../Essentials/Navbar/Navbar2";
 
 const AllArtworks = () => {
   const { artworks, dispatch } = useArtworksContext();
@@ -37,7 +38,8 @@ const AllArtworks = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.1 } }}
     >
-      <Heading>Welcome to ARTficial!</Heading>
+      <Navbar2 />
+      <Heading mx={10}>All Artworks</Heading>
       <SimpleGrid
         // m={1}
         minChildWidth="240px"

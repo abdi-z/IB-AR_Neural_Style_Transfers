@@ -28,6 +28,7 @@ const signupUser = async (req, res) => {
   const { email, password, userName, phoneNumber, gender, avatarImgURL } =
     req.body;
 
+    console.log(req.body)
   try {
     const user = await User.signup(
       email,

@@ -60,7 +60,7 @@ const Signup = () => {
       .then((response) => {
         // console.log(response);
         setLoading(false);
-        setUploadedUrl(response.data.secure_url);
+        setAvatarImgURL(response.data.secure_url);
         setIsImageSelected(true);
       });
   };
@@ -165,7 +165,7 @@ const Signup = () => {
                     <Image
                       style={{ width: 200 }}
                       cloudName="dlx4hhpw2"
-                      publicId={uploadedUrl}
+                      publicId={avatarImgURL}
                     />
                   )}
                 </Center>

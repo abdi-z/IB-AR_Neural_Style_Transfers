@@ -50,13 +50,13 @@ const Step2 = () => {
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={2}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Select a style to apply.</Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
+          <Text fontSize={"lg"} color={"gray.500"}>
             Upload your image <Link color={"blue.400"}> to get started</Link> ✌️
           </Text>
         </Stack>
         <Box
           rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
+          bg={useColorModeValue("gray.300", "gray.700")}
           boxShadow={"lg"}
           px={8}
           py={5}
@@ -64,7 +64,7 @@ const Step2 = () => {
           <Stack spacing={4}>
             <Center>
               <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                ⓘ You can upload image of any resolution and size.
+                ⓘ Select style reference from any of these presets.
               </Text>
             </Center>
             <Stack direction="row">
@@ -130,6 +130,141 @@ const Step2 = () => {
                 />
               </Link>
             </Stack>
+            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                Picasso
+              </Text>
+            <Stack direction="row">
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg"
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg"
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg"
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg"
+                  alt="Dan Abramov"
+                  text="hello"
+                />
+              </Link>
+            </Stack>
+            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                 Van Gogh.
+              </Text>
+            <Stack direction="row">
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg"
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg"
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg"
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg"
+                  alt="Dan Abramov"
+                  text="hello"
+                />
+              </Link>
+            </Stack>
+            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                Leonardo da Vinci
+              </Text>
             <Box as={"form"} mt={10}>
               <Link to="/createartwork/step1">
                 <Button

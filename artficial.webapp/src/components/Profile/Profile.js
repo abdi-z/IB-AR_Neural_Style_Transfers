@@ -118,44 +118,17 @@ const Profile = () => {
                       color={color}
                       fontWeight={"500"}
                       textTransform={"uppercase"}
-                      mb={"4"}
+                      mb={"1"}
                     >
                       Artworks
                     </Text>
-
-                    <List spacing={2}>
-                      <ListItem>
-                        <Text as={"span"} fontWeight={"bold"}>
-                          Email:
-                        </Text>{" "}
-                        <Text as={"span"} color="gray.500">
-                          20 mm
-                        </Text>
-                      </ListItem>
-                      <ListItem>
-                        <Text as={"span"} fontWeight={"bold"}>
-                          Gender:
-                        </Text>{" "}
-                        <Text as={"span"} color="gray.500">
-                          20 mm
-                        </Text>
-                      </ListItem>
-                      <ListItem>
-                        <Text as={"span"} fontWeight={"bold"}>
-                          Contact No:
-                        </Text>{" "}
-                        <Text as={"span"} color="gray.500">
-                          20 mm
-                        </Text>
-                      </ListItem>
-                    </List>
                   </Box>
                 </Stack>
                 <Link to={`/creator/${user._id}/allartworks`}>
                   <Button
                     rounded={"xl"}
                     w={"full"}
-                    mt={8}
+                    mt={1}
                     size={"lg"}
                     py={"7"}
                     bg={"linear-gradient(to right, #7928CA, #FF0080)"}
@@ -169,6 +142,18 @@ const Profile = () => {
                     Browse all Artworks
                   </Button>
                 </Link>
+
+                <Box>
+                    <Text
+                      fontSize={{ base: "16px", lg: "18px" }}
+                      color={color}
+                      fontWeight={"500"}
+                      textTransform={"uppercase"}
+                      mb={"1"}
+                    >
+                      Galleries
+                    </Text>
+                  </Box>
                 <Link to={`/creator/${user._id}/galleries`}>
                   <Button
                     rounded={"xl"}

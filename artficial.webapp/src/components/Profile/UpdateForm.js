@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button, Heading } from "@chakra-ui/react";
+import { Input, Button, Heading, Box ,Center} from "@chakra-ui/react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { Navigate } from "react-router-dom";
 
@@ -36,8 +36,11 @@ const UpdateForm = () => {
     }
   };
   return (
-    <div>
+    <Box mx={300} >
+      <Center m={5}>
+
       <Heading>Update Profile</Heading>
+      </Center >
 
       <label> userName:</label>
       <Input
@@ -58,11 +61,14 @@ const UpdateForm = () => {
         onChange={(e) => setPhoneNumber(e.target.value)}
         value={phoneNumber}
       />
+      <Center m={5}>
+
       <Button colorScheme="teal" variant="solid" onClick={handleSubmit}>
         Update
       </Button>
+      </Center>
       {/* {error && <div className="error">{error}</div>} */}
-    </div>
+    </Box>
   );
 };
 

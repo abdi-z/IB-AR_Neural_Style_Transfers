@@ -49,8 +49,8 @@ export default function Preface() {
   return (
     <motion.Box
       position={"relative"}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0, y:75 }}
+      animate={{ opacity: 1 , y:0 }}
       exit={{ opacity: 0, transition: { duration: 0.1 } }}
     >
       <Container
@@ -131,7 +131,7 @@ export default function Preface() {
             </Text>
           </Stack>
           <Box as={"form"} mt={10}>
-            <Link to="/createartwork/step1">
+            <Link to="/createartwork/select1">
               <Button
                 fontFamily={"heading"}
                 mt={8}
