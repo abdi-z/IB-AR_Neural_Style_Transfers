@@ -164,6 +164,7 @@ const ArtworksDetail = () => {
       );
       if (response.ok) {
         console.log("Artwork added!!");
+        navigate(`/creator/${user._id}/galleries/`)
       }
     } catch (err) {
       console.log(err.message);

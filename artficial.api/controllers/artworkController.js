@@ -19,13 +19,15 @@ const getMostLikedArtwork = async (req, res) => {
     let maxLikedArtwork = null;
 
     artworks.forEach((artwork) => {
-      console.log(Object.keys(artwork.likes).length);
-      if (likesCount > maxLikes) {
-        maxLikes = likesCount;
+      const likeCount = artwork.likes.size;
+      console.log(likeCount); 
+      if (likeCount > maxLikes) {
+        maxLikes = likeCount;
+        maxLikedArtwork = artwork.title
       }
-    }); //////////////////////////////////////
+    }); 
     console.log(maxLikes);
-    res.status(200).json({ maxLikes });
+    res.status(200).json({ maxLikes,maxLikedArtwork });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server Error" });

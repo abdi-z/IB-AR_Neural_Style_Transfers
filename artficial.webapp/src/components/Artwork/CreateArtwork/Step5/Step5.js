@@ -141,7 +141,7 @@ const Step4 = () => {
             </Select>
           </FormControl>
           <FormControl id="nftLink">
-            <FormLabel>NFT Link</FormLabel>
+            <FormLabel>NFT Link (optional)</FormLabel>
             <Input
               type="text"
               name="nftLink"

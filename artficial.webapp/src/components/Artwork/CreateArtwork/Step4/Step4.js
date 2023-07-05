@@ -25,7 +25,7 @@ const Step4 = () => {
   const [styleLink, setStyleLink] = useState("www.styleimage.com");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [isImageSelected, setIsImageSelected] = useState(false);
+  const [isImageSelected, setIsImageSelected] = useState(true);
 
   const { uploadedUrl } = useLocation().state;
   console.log("uploaded URL--4--> " + uploadedUrl);
@@ -41,7 +41,7 @@ const Step4 = () => {
         // console.log(response);
         setLoading(false);
         setStyleLink(response.data.secure_url);
-        setIsImageSelected(true);
+        setIsImageSelected(false);
       });
   };
 

@@ -13,8 +13,9 @@ const API_KEY = "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";
 
 const Dalle = () => {
   const [prompt, setPrompt] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [uploadedUrl, setUploadedUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isImageSelected, setIsImageSelected] = useState(true);
 
   const handleInputChange = (event) => {
     setPrompt(event.target.value);
@@ -44,8 +45,9 @@ const Dalle = () => {
       );
       const image = await response.json();
       const imageUrl = image.data[0].url;
-      setImageUrl(imageUrl);
+      setUploadedUrl(imageUrl);
       console.log(imageUrl);
+      setIsImageSelected(false);
     } catch (error) {
       console.error(error);
     } finally {
@@ -76,7 +78,7 @@ const Dalle = () => {
           mt={4}
           _hover={{ bg: "teal.600" }}
         >
-          Submit
+          Generate
         </Button>
       </form>
       {loading ? (
@@ -84,7 +86,7 @@ const Dalle = () => {
           <Spinner size="xl" color="teal" />
         </Box>
       ) : (
-        imageUrl && (
+        uploadedUrl && (
           <Box
             mt={4}
             maxWidth="500px"
@@ -94,7 +96,7 @@ const Dalle = () => {
             boxShadow="md"
           >
             <img
-              src={imageUrl}
+              src={uploadedUrl}
               alt="Generated Image"
               style={{ maxWidth: "100%" }}
             />
@@ -104,12 +106,11 @@ const Dalle = () => {
       <Link
         to="/createartwork/select"
         state={{
-          uploadedUrl:
-            "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1673624544/hhtmogcvy1ptbyq9kgs7.png",
+          uploadedUrl
         }}
       >
-        <Button colorScheme="teal" mt={4} _hover={{ bg: "teal.600" }}>
-          Next Step
+        <Button colorScheme="red" mt={4} _hover={{ bg: "red.400" }} disabled={isImageSelected}>
+          Proceed
         </Button>
       </Link>
     </Box>

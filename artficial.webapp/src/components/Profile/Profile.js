@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { Link } from "react-router-dom";
+import { EditIcon } from "@chakra-ui/icons";
 import {
   Box,
   Center,
@@ -19,6 +20,7 @@ import {
   VisuallyHidden,
   List,
   ListItem,
+  IconButton,
 } from "@chakra-ui/react";
 
 const Profile = () => {
@@ -111,6 +113,15 @@ const Profile = () => {
                         </Text>
                       </ListItem>
                     </List>
+                    <Center>
+                      <IconButton
+                        as={Link}
+                        to="/profile/update"
+                        colorScheme="blue"
+                        aria-label="Edit Profile"
+                        icon={<EditIcon />}
+                      />
+                    </Center>
                   </Box>
                   <Box>
                     <Text
@@ -144,16 +155,16 @@ const Profile = () => {
                 </Link>
 
                 <Box>
-                    <Text
-                      fontSize={{ base: "16px", lg: "18px" }}
-                      color={color}
-                      fontWeight={"500"}
-                      textTransform={"uppercase"}
-                      mb={"1"}
-                    >
-                      Galleries
-                    </Text>
-                  </Box>
+                  <Text
+                    fontSize={{ base: "16px", lg: "18px" }}
+                    color={color}
+                    fontWeight={"500"}
+                    textTransform={"uppercase"}
+                    mb={"1"}
+                  >
+                    Galleries
+                  </Text>
+                </Box>
                 <Link to={`/creator/${user._id}/galleries`}>
                   <Button
                     rounded={"xl"}
@@ -177,9 +188,6 @@ const Profile = () => {
           </Flex>
         </>
       )}
-      <Link to="/profile/update">
-        <Button colorScheme="blue">Edit Profile</Button>
-      </Link>
     </>
   );
 };

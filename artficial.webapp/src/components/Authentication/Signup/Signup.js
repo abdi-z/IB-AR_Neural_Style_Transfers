@@ -17,6 +17,7 @@ import {
   useColorModeValue,
   Center,
   Spinner,
+  Tooltip,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { motion } from "framer-motion";
@@ -47,7 +48,6 @@ const Signup = () => {
     e.preventDefault();
     console.log("Signup form: ", email);
     await signup(email, password, userName, phoneNumber, gender, avatarImgURL);
-    navigate("/allartworks");
   };
 
   const uploadImage = () => {
@@ -119,7 +119,13 @@ const Signup = () => {
               />
             </FormControl>
             <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
+              <Tooltip
+                bg={"red.100"}
+                rounded={"lg"}
+                label="ⓘ Password should be 8 characters long and include Capital, Small and Special characters"
+              >
+                <FormLabel>Password</FormLabel>
+              </Tooltip>
               <InputGroup>
                 <Input
                   type={showPassword ? "text" : "password"}
@@ -185,6 +191,9 @@ const Signup = () => {
                 Sign up
               </Button>
             </Stack>
+            <Center>
+              {error && <Text color={"red.400"}> ⓘ {error}</Text>}
+            </Center>
             <Stack pt={6}>
               <Text align={"center"}>
                 Already a user?{" "}

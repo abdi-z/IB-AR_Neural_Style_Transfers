@@ -15,11 +15,8 @@ const Dashboard = () => {
   const [totalUsers, setTotalUsers] = useState(0);
   const [totalArtworks, setTotalArtworks] = useState(0);
   const [totalGalleries, setTotalGalleries] = useState(0);
-  const [likedArtworks, setLikedArtworks] = useState(0);
-  const [mostLikedArtwork, setMostLikedArtwork] = useState({
-    title: "Gaejin Renaissance",
-    likes: 3,
-  });
+  const [mostLikedArtwork, setMostLikedArtwork] = useState("Gaejin Renaissance");
+  const [likesCount, setLikesCount] = useState(0);
 
   useEffect(() => {
     const fetchArtworks = async () => {
@@ -28,7 +25,9 @@ const Dashboard = () => {
       );
       const data = await response.json();
       if (response.ok) {
-        setLikedArtworks(data.maxLikes);
+        console.log(data.maxLikedArtwork)
+        setMostLikedArtwork(data.maxLikedArtwork);
+        setLikesCount(data.maxLikes);
       }
     };
     fetchArtworks();
@@ -116,11 +115,10 @@ const Dashboard = () => {
                       Most Liked Artwork
                     </StatLabel>
                     <StatNumber textAlign="center" color="gray.100">
-                      {mostLikedArtwork.title}
+                      {mostLikedArtwork}
                     </StatNumber>
-                    <Text textAlign="center" fontSize="sm" color="gray.100">
-                      Likes: {mostLikedArtwork.likes}
-                      Likes: {likedArtworks}
+                    <Text textAlign="center" fontSize="sm" color="gray.100">                      
+                      Likes: {likesCount}
                     </Text>
                   </Stat>
                 </Box>

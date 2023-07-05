@@ -72,14 +72,14 @@ const Step2 = () => {
                 to="/createartwork/step3"
                 state={{
                   styleLink:
-                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg",
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688579062/j90cvutqstuwwz1qtlha.jpg",
                   uploadedUrl,
                 }}
               >
                 <Image
                   boxSize="150px"
                   objectFit="cover"
-                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688579062/j90cvutqstuwwz1qtlha.jpg"
                   alt="Dan Abramov"
                 />
               </Link>
@@ -87,14 +87,80 @@ const Step2 = () => {
                 to="/createartwork/step3"
                 state={{
                   styleLink:
-                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg",
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688581898/axingvtvba9hoyiou4gs.jpg",
                   uploadedUrl,
                 }}
               >
                 <Image
                   boxSize="150px"
                   objectFit="cover"
-                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688581898/axingvtvba9hoyiou4gs.jpg"
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688583440/yqjkbuxy2je4dlsi691y.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688583440/yqjkbuxy2je4dlsi691y.jpg"
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg"
+                  alt="Dan Abramov"
+                  text="hello"
+                />
+              </Link>
+            </Stack>
+            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+              Picasso
+            </Text>
+            <Stack direction="row">
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688568613/pawp55sgpnugggdksurv.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688568613/pawp55sgpnugggdksurv.jpg"
+                  alt="Dan Abramov"
+                />
+              </Link>
+              <Link
+                to="/createartwork/step3"
+                state={{
+                  styleLink:
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688582395/zacusvtcspb2jippzorx.jpg",
+                  uploadedUrl,
+                }}
+              >
+                <Image
+                  boxSize="150px"
+                  objectFit="cover"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688582395/zacusvtcspb2jippzorx.jpg"
                   alt="Dan Abramov"
                 />
               </Link>
@@ -117,22 +183,22 @@ const Step2 = () => {
                 to="/createartwork/step3"
                 state={{
                   styleLink:
-                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg",
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688569540/p6hzyyd1t77aw9apjwyy.jpg",
                   uploadedUrl,
                 }}
               >
                 <Image
                   boxSize="150px"
                   objectFit="cover"
-                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688569540/p6hzyyd1t77aw9apjwyy.jpg"
                   alt="Dan Abramov"
                   text="hello"
                 />
               </Link>
             </Stack>
             <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                Picasso
-              </Text>
+              Van Gogh.
+            </Text>
             <Stack direction="row">
               <Link
                 to="/createartwork/step3"
@@ -168,14 +234,14 @@ const Step2 = () => {
                 to="/createartwork/step3"
                 state={{
                   styleLink:
-                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg",
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688583858/d1w6cpm8unyfd8twssty.jpg",
                   uploadedUrl,
                 }}
               >
                 <Image
                   boxSize="150px"
                   objectFit="cover"
-                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688583858/d1w6cpm8unyfd8twssty.jpg"
                   alt="Dan Abramov"
                 />
               </Link>
@@ -183,88 +249,22 @@ const Step2 = () => {
                 to="/createartwork/step3"
                 state={{
                   styleLink:
-                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg",
+                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688583420/oxo5wf8lcfoq9bv3tf8v.jpg",
                   uploadedUrl,
                 }}
               >
                 <Image
                   boxSize="150px"
                   objectFit="cover"
-                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg"
+                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1688583420/oxo5wf8lcfoq9bv3tf8v.jpg"
                   alt="Dan Abramov"
                   text="hello"
                 />
               </Link>
             </Stack>
             <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                 Van Gogh.
-              </Text>
-            <Stack direction="row">
-              <Link
-                to="/createartwork/step3"
-                state={{
-                  styleLink:
-                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg",
-                  uploadedUrl,
-                }}
-              >
-                <Image
-                  boxSize="150px"
-                  objectFit="cover"
-                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910110/klimt_crnscp.jpg"
-                  alt="Dan Abramov"
-                />
-              </Link>
-              <Link
-                to="/createartwork/step3"
-                state={{
-                  styleLink:
-                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg",
-                  uploadedUrl,
-                }}
-              >
-                <Image
-                  boxSize="150px"
-                  objectFit="cover"
-                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910104/monet_ibeze6.jpg"
-                  alt="Dan Abramov"
-                />
-              </Link>
-              <Link
-                to="/createartwork/step3"
-                state={{
-                  styleLink:
-                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg",
-                  uploadedUrl,
-                }}
-              >
-                <Image
-                  boxSize="150px"
-                  objectFit="cover"
-                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910107/starrynight_e37vxd.jpg"
-                  alt="Dan Abramov"
-                />
-              </Link>
-              <Link
-                to="/createartwork/step3"
-                state={{
-                  styleLink:
-                    "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg",
-                  uploadedUrl,
-                }}
-              >
-                <Image
-                  boxSize="150px"
-                  objectFit="cover"
-                  src="https://res.cloudinary.com/dlx4hhpw2/image/upload/v1671910106/frida_blrpd3.jpg"
-                  alt="Dan Abramov"
-                  text="hello"
-                />
-              </Link>
-            </Stack>
-            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                Leonardo da Vinci
-              </Text>
+              Leonardo da Vinci
+            </Text>
             <Box as={"form"} mt={10}>
               <Link to="/createartwork/step1">
                 <Button

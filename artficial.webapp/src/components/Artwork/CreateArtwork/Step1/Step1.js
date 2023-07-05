@@ -24,7 +24,7 @@ const Step1 = () => {
   const [uploadedUrl, setUploadedUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [isImageSelected, setIsImageSelected] = useState(false);
+  const [isImageSelected, setIsImageSelected] = useState(true);
 
   const uploadImage = () => {
     setLoading(true);
@@ -37,7 +37,7 @@ const Step1 = () => {
         // console.log(response);
         setLoading(false);
         setUploadedUrl(response.data.secure_url);
-        setIsImageSelected(true);
+        setIsImageSelected(false);
       });
   };
 
@@ -97,8 +97,7 @@ const Step1 = () => {
                 <Link
                   to="/createartwork/select"
                   state={{
-                    uploadedUrl:
-                      "https://res.cloudinary.com/dlx4hhpw2/image/upload/v1673624544/hhtmogcvy1ptbyq9kgs7.png",
+                    uploadedUrl
                   }}
                 >
                   <Button
