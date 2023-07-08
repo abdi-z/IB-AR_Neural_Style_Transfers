@@ -98,7 +98,6 @@ Following are some screenshots of the app showcasing different functional requir
 ![Screenshot 2023-07-09 at 00-15-40 ARTficial](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/edb6c076-b74a-4bea-bf95-de8a6b0b32e2)
 ![Screenshot 2023-07-09 at 00-15-14 ARTficial](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/3ea92685-e0d8-4e06-85cf-7b1e22ac912e)
 ![Screenshot 2023-07-09 at 00-14-51 ARTficial](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/85dd9c08-21be-4811-9fa6-6db161e0d322)
-![Screenshot 2023-07-08 at 23-15-13 ARTficial](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/d58c2dea-aa1e-45c4-9b7d-ca22f7022b2a)
 ![Screenshot 2023-07-09 at 00-22-22 ARTfifial Admin](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/f287cdbb-6aa6-4b72-b43d-42be0e73bd38)
 ![Screenshot 2023-07-09 at 00-22-02 ARTficial](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/d7aee8c6-6af1-4031-b545-681ff78825ba)
 ![Screenshot 2023-07-09 at 00-17-24 ARTficial](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/a5d92088-810e-4914-9575-20fa146f8eee)
