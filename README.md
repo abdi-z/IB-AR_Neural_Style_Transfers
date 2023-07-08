@@ -70,7 +70,9 @@ or preferably if you have nodemon installed globally
 nodemon app.js
 ```
 The main server should be up and running on localhost:4000
-![Screenshot 2023-07-08 at 23-15-13 ARTficial](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/e7cbdad6-70d9-440e-9bd9-0234fbe67fd1)
+![Screenshot 2023-07-09 at 00-53-26 Screenshot](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/2974a814-fe9b-4904-8ae8-f59cc1dfab75)
+
+
 
 ## Run Admin panel
 
