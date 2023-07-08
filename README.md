@@ -101,3 +101,24 @@ Following are some screenshots of the app showcasing different functional requir
 ![Screenshot 2023-07-09 at 00-22-22 ARTfifial Admin](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/f287cdbb-6aa6-4b72-b43d-42be0e73bd38)
 ![Screenshot 2023-07-09 at 00-22-02 ARTficial](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/d7aee8c6-6af1-4031-b545-681ff78825ba)
 ![Screenshot 2023-07-09 at 00-17-24 ARTficial](https://github.com/abdi-z/IB-AR_Neural_Style_Transfers/assets/92116477/a5d92088-810e-4914-9575-20fa146f8eee)
+
+
+### Research:
+
+The original neural style transfer implemented by Gatys has a problem in that, sometimes it generates a more 'filter' like image, which gives it a very synthetic/artificial look.
+As our platform requires the generation of images to be more like paintings or artwork, the baseline implementation won't suffice. So, we have proposed changes in the architecture of original Neural Style Transfer in the following domains that can aid in rendering painting-like images.
+
+- Gram matrix alteration
+
+- Style loss modification
+
+- Variation of Layers in style and content extraction
+
+- Miscellaneous hyperparameter tuning
+
+Presentation: https://www.canva.com/design/DAFnkfeeF24/Ci0y6Bcx1PPkqUa7-jR1zQ/view
+
+Colab notebook: https://colab.research.google.com/drive/1m9mvw8kX6So1S7Fz2UzgfBuKeMJHwpyO?usp=sharing
+
+
+
