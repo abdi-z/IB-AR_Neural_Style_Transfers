@@ -9,7 +9,7 @@ The project comprises of the following 4 solutions
 - ModelApi (Our model server that generates stylized images using NST)
 
 ### Dependencies:
-Make sure you have node ^16.15.1 and npm ^9.1.2 installed on your computer globally from https://nodejs.org/en/download. Also, make sure you have the following packages of python installed as well:
+Make sure you have node ^16.15.1 and npm ^9.1.2 installed on your computer globally from https://nodejs.org/en/download. Also, make sure you have the python installed along with following packages of python installed as well:
 flask
 flask_cors
 flask_limiter
